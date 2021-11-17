@@ -1,5 +1,9 @@
 ## Aclaraciones de lo que se hablo
 
+### Recuerden que la rama MAIN no se toca, cuando clonen el repositorio creen una rama con su nombre.
+
+- Las ramas que creen deben ser llamadas por su nombre.
+
 - Recuerden solo poner sus archivos en la carpeta correspondiente.
 
 - Porfavor no toquen codigos de otros
@@ -17,5 +21,3 @@
 - No creen mas carpetas de las que ya se establecieron, de creerlo necesario, dialogelo con los compañeros primero.
 
 - Recordar ser bien descriptivos con todo lo que se escriba, ya sea tanto variables como nombres de archivos y en ingles.
-
-- Las ramas que creen deben ser llamadas por su nombre.
