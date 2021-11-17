@@ -1,6 +1,6 @@
 ## Aclaraciones de lo que se hablo
 
-### Recuerden que la rama MAIN no se toca, cuando clonen el repositorio creen una rama con su nombre.
+### Recuerden que la rama MASTER no se toca, cuando clonen el repositorio creen una rama con su nombre.
 
 - Las ramas que creen deben ser llamadas por su nombre.
 
