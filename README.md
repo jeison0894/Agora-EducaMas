@@ -8,7 +8,7 @@
 
 - Porfavor no toquen codigos de otros
 
-- No tocar el archivo index.js ni index.css
+- No tocar los archivos principales que son, index.js, index.css y App.css
 
 - Unicamente en App.js se hace la importacion del componente que esten trabajando y cuando vayan a hacer push pongan tanto la importacion como el componente comentado, por lo que su compañer@ al hacer pull y ejecutar npm run start debe tener el navegador en blanco.
 
