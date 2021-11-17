@@ -15,3 +15,5 @@
 - Recuerden que si la vista que estan trabajando tiene una vista formador o estudiante, asignar los archivos en la carpeta correspondiente.
 
 - No creen mas carpetas de las que ya se establecieron, de creerlo necesario, dialogelo con los compañeros primero.
+
+- Recordar ser bien descriptivos con todo lo que se escriba, ya sea tanto variables, como nombres de archivos y en ingles.
