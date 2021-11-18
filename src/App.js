@@ -1,16 +1,18 @@
-import "./App.css";
-// import Footer from "./componentes/header&footer/Footer";
+//  import Footer from "./componentes/header&footer/Footer";
 // import Header from "./componentes/header&footer/Header";
 // import AddProject from "./pages/projects/trainer/addProject/AddProject";
+import Autentification from './pages/auth/Autentification'
 
-function App() {
+import './App.css'
+function App () {
   return (
     <>
-      {/* <Header />
-      <AddProject />
-      <Footer /> */}
+     {/* <Header />
+        <AddProject />
+        <Footer /> */}
+      <Autentification />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
