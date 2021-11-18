@@ -60,8 +60,8 @@ const AddProject = () => {
           console.log(values);
         }}
         validate={(values) => {
-          //let errors = {};
-          /* // Validación picture
+          let errors = {};
+          // Validación picture
           if (!values.picture) errors.picture = "Este campo es requerido";
 
           // Validación nombre
@@ -93,7 +93,7 @@ const AddProject = () => {
           if (!values.deliverables)
             errors.deliverables = "Este campo es requerido";
 
-          return errors; */
+          return errors;
         }}
       >
         {({ errors }) => (
