@@ -75,8 +75,8 @@ const FeedbackProjects = () => {
           <p>Escriba un mensaje</p>
           <textarea
              className='textarea-comment'
-            onChange={props.handleChange}
-            value={props.comment} />
+          
+            />
              <FiSend className='icon-send'/>
           </form>
         </div>

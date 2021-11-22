@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+body{
+
+    font-family: 'Roboto', sans-serif;
+    background-color:#FBF9F6 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+ 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 580px;
+    height: 560px;
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+     
+    
+}
+.container-post {
+   
+    width: 520px;
+    height: 200px;
+    margin-top: 12px;
+    padding-top: 5%;
+    border: 1px solid lightgrey;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.user {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    justify-content: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.name-post {
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    font-weight: bold;
+    margin: -6% 15% 10px;
+    font-size: 12px;
+}
+
+.comment {
+
+     margin-top: 25px;
+     margin-left: 20px;
+     padding-top: 15px;
+     padding-bottom: 5%;
+     font-size: 13px;
+ 
+}
+p{
+    font-size: 13px;
+    margin-left: 20px;
+}
+.container-add{
+    width: 520px;
+    height: 200px;
+    margin-top: 70px;
+    padding-top: 5%;
+    border: 1px solid lightgrey;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+label{
+    margin-left: 20px;
+    font-size: 12px;
+}
+.link{
+    width: 380px;
+    height: 20px;
+    color: #FAFFBD;
+}
+.btn-add{
+    background-color: #FFCC02;
+    border-radius: 4px;
+    color: #010101;
+    border: none;
+    width: 80px;
+    height: 25px;
+    cursor: pointer;
+    margin-left: 1px;
+}
+.textarea-comment{
+    width: 380px;
+    height: 20px;
+    color: #444;
+    margin-left: 20px;
+    font-size: 12px;
+
+}
+.icon-send{
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+
+
+}
