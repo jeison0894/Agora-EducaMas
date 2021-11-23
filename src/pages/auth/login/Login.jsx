@@ -34,7 +34,6 @@ function Login () {
         email,
         password
       })
-      console.log(res)
       setUser({ ...user, err: '', success: res.data.msg })
       window.localStorage.setItem('firstLogin', true)
       window.localStorage.setItem(
@@ -52,7 +51,7 @@ function Login () {
 
   return (
     <div className='container-login'>
-      <div className='login_page'>
+      <div className='login-page'>
         <img className='logo' src={logo} alt='logo' />
         <form className='form' onSubmit={handleSubmit}>
           <div className='login-form-content'>

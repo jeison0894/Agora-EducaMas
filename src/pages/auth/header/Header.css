@@ -1,3 +1,4 @@
+/*---------------------HEADER LOGIN----------------------------*/
 .header-login {
   width: 100%;
   background: #fff;
@@ -6,49 +7,74 @@
   align-items: center;
   padding: 0 30px;
 }
-.logo-login {
+.logo-header-login {
   width: 15%;
-}
-.icon-login{
-  color: black !important;
-  background-color: black !important;
 }
 .header-login a {
   color: black;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  font-size: 15px;
 }
 .header-login ul li {
+  top: 13px;
   display: inline-block;
-  padding: 10px 20px; 
+  padding: 10px 20px;
 }
 .header-login ul li img {
+  
   width: 30px;
   height: 30px;
-  transform: translateY(10px);
   border-radius: 50%;
 }
-
-/* --------- Dropdown ---------- */
-.drop-nav {
+.icon-signIn {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #ffd808;
+}
+/*---------------------MENU LOGIN----------------------------*/
+.header-login .link-logOut {
+  color: #fff;
+}
+.header-login .link-profile {
+  color: #fff;
+}
+.container-menu-headerLogin {
   position: relative;
   padding: 10px 0;
 }
-.drop-nav a {
+.container-menu-headerLogin a {
   text-transform: capitalize;
   overflow: hidden;
 }
-.drop-nav .dropdown {
+.container-menu-headerLogin .container-menu-links {
   position: absolute;
-  background: #282c34;
+  background: rgba(53, 53, 53, 0.664);
   width: 100%;
-  width: calc(100% + 30px);
+  width: calc(100% + 100px);
   top: 50px;
   display: none;
 }
-.drop-nav .dropdown li {
+.container-menu-headerLogin .container-menu-links li {
   display: block;
 }
-.drop-nav:hover .dropdown {
+.container-menu-headerLogin:hover .container-menu-links {
   display: block;
+}
+/*---------------------MEDIA QUERIES----------------------------*/
+@media (max-width: 600px) {
+  .logo-header-login {
+    width: 35%;
+  }
+  .icon-signIn {
+    font-size: 15px;
+  }
+  .header-login ul li img {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media (max-width: 1000px) {
+  .header-login {
+    width: 100%;
+  }
 }

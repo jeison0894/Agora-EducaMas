@@ -110,7 +110,7 @@ function Register () {
 
       setUser({ ...user, err: '', success: res.data.msg })
     } catch (err) {
-      console.log(err.response)
+      showErrMsg(err.response.data.msg)
       err.response.data.msg &&
         setUser({ ...user, err: err.response.data.msg, success: '' })
     }
@@ -189,22 +189,21 @@ function Register () {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className='container-register-input'>
+            {/* <div className='container-register-input'>
               <label>Ingresa una imagen</label>
               <button className='button-submit-photo' type='submit'>
                 Escoger un archivo
               </button>
-            </div>
+            </div> */}
             {auth.isAdmin ? (
-              <div>
-                <select name='select'>
-                  <option value='Administrador'>Administrador</option>
-                  <option value='Estudiante' selected>
+                <select className='select'>
+                  <option value='Administrador' >Administrador</option>
+                  <option value='Estudiante' >
                     Estudiante
                   </option>
-                  <option value='Formador'>Formador</option>
+                  <option value='Formador' >Formador</option>
                 </select>
-              </div>
+              
             ) : (
               ''
             )}

@@ -13,7 +13,7 @@
   flex-direction: column;
   gap: 20px 0 !important;
 }
-.login_page {
+.login-page{
   height: 80vh;
   width: 100%;
   max-width: 400px;
@@ -41,18 +41,18 @@
   cursor: pointer ;
   border: none;
 }
-.login_page p {
+.login-page p {
   font-size: 14px;
   cursor: pointer;
   margin: 15px 0;
   font-weight: 600;
 }
-.login_page a {
+.login-page a {
   font-size: 14px;
   color: #000;
   font-weight: 600;
 }
-.login_page a:hover {
+.login-page a:hover {
   color: #ffd808;
 }
 
@@ -64,7 +64,7 @@
   .button-login { 
     margin: 50px auto 30px auto; 
   }
-  .login_page{
+  .login-page{
     height: 90vh;
   }
 }

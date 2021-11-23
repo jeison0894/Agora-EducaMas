@@ -1,18 +1,20 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const UserLink = ({user, handleLogout}) => {
+const UserLink = ({ user, handleLogout }) => {
   return (
-    <li className='drop-nav'>
+    <li className='container-menu-headerLogin'>
       <Link to='#' className='avatar'>
         <img src={user.avatar} alt='' /> {user.name}{' '}
         <i className='fas fa-angle-down'></i>
       </Link>
-      <ul className='dropdown'>
+      <ul className='container-menu-links'>
         <li>
-          <Link to='/profile'>Profile</Link>
+          <Link className='link-profile' to='/profile'>
+            Profile
+          </Link>
         </li>
         <li>
-          <Link to='/' onClick={handleLogout}>
+          <Link className='link-logOut' to='/' onClick={handleLogout}>
             Logout
           </Link>
         </li>

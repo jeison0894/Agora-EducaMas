@@ -8,9 +8,23 @@ export const fetchAllUsers = async (token) => {
     return res
 }
 
+export const fetchAllStudents = async (token) => {
+    const res = await axios.get('http://localhost:3005/api/all_students', {
+        headers: {Authorization: token}
+    })
+    return res
+}
+
 export const dispatchGetAllUsers = (res) => {
     return {
         type: ACTIONS.GET_ALL_USERS,
+        payload: res.data
+    }
+}
+
+export const dispatchGetAllStudents = (res) => {
+    return {
+        type: ACTIONS.GET_ALL_STUDENTS,
         payload: res.data
     }
 }

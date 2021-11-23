@@ -36,7 +36,6 @@ function Profile () {
 
   useEffect(() => {
     if (isAdmin) {
-      console.log('SI')
       fetchAllUsers(token).then(res => {
         dispatch(dispatchGetAllUsers(res))
       })
@@ -150,10 +149,11 @@ function Profile () {
 
   return (
     <>
-        {err && showErrMsg(err)}
+         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
-        {loading && <h3>Loading.....</h3>}
-      <div className='container-main-profile'>
+        {loading && <h3>Loading.....</h3>} 
+        <div className="container-all-information">
+       <div className='container-main-profile'>
         <div className='container-profile'>
           <h2 className='title-profile'>
             {isAdmin ? 'PERFIL ADMINISTRADOR' : 'PERFIL USUARIO'}
@@ -164,8 +164,8 @@ function Profile () {
               className='profile-image'
               src={avatar ? avatar : user.avatar}
               alt=''
-            />
-            {/* <input
+            /> 
+             {/* <input
                   type='file'
                   name='file'
                   id='file_up'
@@ -219,14 +219,15 @@ function Profile () {
           >
             Actualizar
           </button>
-        </div>
+        </div> 
       
 
       {isAdmin ? (
+        
         <div className='container-main-admin'>
-          <div className='container-info-admin'>
+          <div className='container-info-admin table-responsive'>
               <h2 className="title-profile-user">USUARIOS</h2>
-            <table className='table-info-students table table-striped'>
+            <table className='table-info-students table table-striped table-responsive'>
               <thead>
                 <tr>
                   <th>ID</th>
@@ -274,9 +275,11 @@ function Profile () {
             </Link>
           </div>
         </div>
+        
       ) : (
         ''
       )}
+      </div>
       </div>
     </>
   )

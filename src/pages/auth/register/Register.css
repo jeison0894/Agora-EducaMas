@@ -67,7 +67,7 @@ button {
 .button-submit-register {
   font-weight: bold;
   background-color: #ffd808;
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 10px;
   width: 50%;
   display: block;
@@ -83,7 +83,9 @@ button {
 .container-register-page a:hover{
   color: #ffd808;
 }
-
+.select:hover{
+  border: 2px solid #ffd808;
+}
 /* -------------MEDIA QUERIES--------------- */
 @media (max-width: 1059px) {
   .container-register-page {
@@ -98,7 +100,6 @@ button {
   .logo-register {
     width: 50%;
   }
-
   .container-register-page {
     width: 80%;
     margin: 20px 0;

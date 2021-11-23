@@ -11,7 +11,6 @@ function Header () {
 
   const handleLogout = async () => {
     try {
-      // await axios.get('/user/logout')
       localStorage.removeItem('firstLogin')
       localStorage.removeItem('loggedAgoraUser')
       window.location.href = '/'
@@ -26,7 +25,7 @@ function Header () {
 
   return (
     <header className='header-login'>
-      <img className='logo-login' src={logo} alt='logo' />
+      <img className='logo-header-login' src={logo} alt='logo' />
 
       <ul style={transForm}>
         {isLogged ? (
@@ -34,7 +33,7 @@ function Header () {
         ) : (
           <li>
             <Link to='/login'>
-              <i className='fas fa-user icon-login'></i> Sign in
+              <i className='fas fa-user icon-signIn'></i> Sign in
             </Link>
           </li>
         )}
