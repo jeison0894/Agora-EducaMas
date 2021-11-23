@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
-body{
+body {
 
     font-family: 'Roboto', sans-serif;
-    background-color:#FBF9F6 ;
+    background-color: #FBF9F6;
     display: flex;
     flex-direction: column;
     align-items: center;
 
- 
+
+
 }
 
-.container {
+.container-feedback {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,13 +21,14 @@ body{
     background-color: #fff;
     border: 1px solid lightgrey;
     border-radius: 10px;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
-     
-    
+
+
 }
+
 .container-post {
-   
+
     width: 520px;
     height: 200px;
     margin-top: 12px;
@@ -38,7 +40,7 @@ body{
 
 .user {
     border-radius: 50%;
-    width: 50px;
+    width: 100px;
     height: 50px;
     overflow: hidden;
     display: flex;
@@ -47,31 +49,37 @@ body{
     justify-content: left;
     padding-left: 20px;
     padding-right: 20px;
+
+
 }
+
 
 .name-post {
     display: flex;
     justify-content: left;
     text-align: center;
     font-weight: bold;
-    margin: -6% 15% 10px;
+    margin: -6% 18% 15px;
     font-size: 12px;
 }
 
 .comment {
 
-     margin-top: 25px;
-     margin-left: 20px;
-     padding-top: 15px;
-     padding-bottom: 5%;
-     font-size: 13px;
- 
+    margin-top: 25px;
+    margin-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 5%;
+    font-size: 13px;
+
 }
-p{
+
+p {
     font-size: 13px;
     margin-left: 20px;
+    margin-top: 10px;
 }
-.container-add{
+
+.container-add {
     width: 520px;
     height: 200px;
     margin-top: 70px;
@@ -79,19 +87,23 @@ p{
     border: 1px solid lightgrey;
     background-color: #fff;
     border-radius: 10px;
-    display: flex;
-    justify-content: flex-start;
+
 }
-label{
+
+label {
     margin-left: 20px;
-    font-size: 12px;
+    font-size: 10px;
+    margin-bottom: 10px;
 }
-.link{
+
+.link {
     width: 380px;
     height: 20px;
     color: #FAFFBD;
+    font-size: 13px;
 }
-.btn-add{
+
+.btn-add {
     background-color: #FFCC02;
     border-radius: 4px;
     color: #010101;
@@ -100,20 +112,32 @@ label{
     height: 25px;
     cursor: pointer;
     margin-left: 1px;
+    font-size: 14px;
 }
-.textarea-comment{
+
+.textarea-comment {
     width: 380px;
-    height: 20px;
-    color: #444;
-    margin-left: 20px;
+    height: 30px;
     font-size: 12px;
 
 }
-.icon-send{
+
+.msj {
+
+    margin-top: 20px;
+}
+
+.icon-send {
     width: 20px;
     height: 20px;
     margin-left: 20px;
     cursor: pointer;
 
+}
 
+.error {
+
+    color: #e92b2d;
+    font-weight: 600;
+    font-size: 12px;
 }

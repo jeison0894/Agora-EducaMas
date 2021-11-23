@@ -1,87 +1,108 @@
-import React from 'react'
+import { React, useState } from 'react'
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import './FeedbackProjects.css'
 import { FiSend } from "react-icons/fi";
-import { RiChatDeleteLine } from "react-icons/ri";
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+//import { RiChatDeleteLine } from "react-icons/ri";
 
 
 
-const FeedbackProjects = () => { 
-  const initialState = {
-    id_Proyecto: '',
-    id_user:'',
-    id_publisher: '',
-    text:''
-}
-  const [user, setUser] = useState([initialState]);
 
-  const {
-    id_Proyecto,
-    id_user,
-    id_publisher,
-    text,
-  } =user
+const FeedbackProjects = () => {
+  const [formsent, setFormsent] = useState(false);
+  const [links, setLinks] = useState([]);
+  const [comment, setComment] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-            const res = await axios.get('http://localhost:3005/api/agora/get-deliverie', {
-              id_Proyecto,
-              id_user,
-              id_publisher,
-              text,
-            })
-            console.log(res)
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const addLink = (links) => {
+    const newLinks = [...links, { links }];
+    setLinks(newLinks);
+  };
 
   return (
-    <div className='container main-section border col-lg-2 col-sm-2 col-5'>
-      <div className='row'>
-        <div className='container-post  col-lg-10 col-sm-10 col-7'>
+<>
+  
+    <div className='container-feedback'>
+    
+        <div className='container-post  '>
           <img
             src='https://media.cdnandroid.com/item_images/1068635/imagen-girly-wallpapers-profil-pics-for-girls-0big.jpg'
             className='user'
           />
-
           <p className='name-post'>Lola Mento</p>
           <p className='comment'>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam
-            commodi expedita consequuntur eius, adipisci tempore! Odit nostrum
-            possimus deserunt quod at.
+          <div className="container">
+                <linksForm addLinks={addLink} />
+                <div>
+                  {links.map((links, index) => (
+              
+                        <linksRow
+                          key={index}
+                          index={index}
+                          links={links}      
+                        />
+                  ))}
+                </div>
+              </div>
           </p>
         </div>
         <div className='container-add'>
-          <form> 
-            <p> <strong>Agregar una entrega</strong> (máximo 5 enlaces )</p>
-            <label>
+      
+          <Formik
+           initialValues={{
+            links: [],
+            date: "",
+            comment: "",
+            
+           }}
+           onSubmit={(values, { resetForm })=>{
+             values.links=links;
+             values.comment=comment;
+             resetForm();
+             setFormsent(true);
+             setTimeout(() => setFormsent(false), 2000);
+             console.log(values);
+        }}
+
+        validate={(values) => {
+          let errors = {};
+          
+           if (!values.links) errors.links = "Este campo es requerido";
+           
+           if (!values.comment) errors.comment = "Este campo es requerido";
+          
+          }}
+           >
+           
+          <Form>  
+            <p><strong>Agregar una entrega</strong>(máximo 5 enlaces )  </p>
+             <label htmlFor='links'> </label>
               <input className='link' 
               type='url' 
-              name='link'
+              name='links'
+              id='links'
               placeholder="Ingresa una URL válida -https://www.ejemplo.com"
               
               />
-            </label>
-            <input className='btn-add'
+           
+            <button className='btn-add'
              type='submit' 
              value='Agregar'
-             />
-          <p>Escriba un mensaje</p>
-          <textarea
-             className='textarea-comment'
-          
-            />
-             <FiSend className='icon-send'/>
-          </form>
+             name='Agregar'
+             >Agregar</button> 
+          <p className='msj'>Escriba un mensaje</p>
+          <div >
+              <label htmlFor="comment" ></label>
+              <Field as="textarea" name="comment" id="comment" rows="20" col="3" placeholder="mensaje" className='textarea-comment' />
+             
+             <FiSend className='icon-send' type="submit"/>
+             </div>
+           
+          </Form>
+   
+          </Formik>
         </div>
-      </div>
     </div>
+  
+    </>
   )
 }
 

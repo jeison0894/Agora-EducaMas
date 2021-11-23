@@ -1,14 +1,20 @@
 import "./App.css";
-import Footer from "./componentes/header&footer/Footer";
-import Header from "./componentes/header&footer/Header";
-import AddProject from "./pages/projects/trainer/addProject/AddProject";
+//import Footer from "./componentes/header&footer/Footer";
+//import Header from "./componentes/header&footer/Header";
+//import FeedbackProjects from "./componentes/projectsvalidate/feedbackprojects/FeedbackProjects";
+import Selectproject from "./componentes/projectsvalidate/selectproject/Selectproject";
+
 
 function App() {
   return (
     <>
-      <Header />
-      <AddProject />
-      <Footer />
+    
+   
+     <Selectproject/>
+     
+
+     
+     
     </>
   );
 }
