@@ -11,26 +11,9 @@ export default function Footer() {
           <p>Todos los derechos reservados @2021</p>
 
           <div className="socialNetworksContainer">
-            <box-icon
-              name="facebook-circle"
-              type="logo"
-              color="#ffffff"
-              style={{ cursor: "Pointer" }}
-            ></box-icon>
-
-            <box-icon
-              name="instagram"
-              type="logo"
-              color="#ffffff"
-              style={{ cursor: "Pointer" }}
-            ></box-icon>
-
-            <box-icon
-              name="youtube"
-              type="logo"
-              color="#ffffff"
-              style={{ cursor: "Pointer" }}
-            ></box-icon>
+            <i className="fab fa-facebook"></i>
+            <i className="fab fa-youtube"></i>
+            <i className="fab fa-instagram"></i>
           </div>
 
           <div className="LogosFooterContainer">

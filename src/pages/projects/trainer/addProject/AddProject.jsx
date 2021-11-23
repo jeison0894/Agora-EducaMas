@@ -1,12 +1,14 @@
 import { React, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import ResourceRow from "./ResourceRow";
-import ResourceForm from "./ResourceForm";
 import { Card } from "react-bootstrap";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import "@pathofdev/react-tag-input/build/index.css";
 import "./addProject.css";
-import CompetenceForm from "./CompetenceForm";
+import ResourceForm from "./resources/ResourceForm";
+import ResourceRow from "./resources/ResourceRow";
+import CompetenceForm from "./competence/CompetenceForm";
+import TitleSection from "../../../../componentes/titles/TitleSection";
+import * as controllerProject from "../../../../controllers/controllerProject";
 
 const AddProject = () => {
   const [formsent, setFormsent] = useState(false);
@@ -31,6 +33,7 @@ const AddProject = () => {
 
   return (
     <>
+      <TitleSection name={"Agregar proyecto"} />
       <Formik
         initialValues={{
           picture: "",
@@ -58,9 +61,11 @@ const AddProject = () => {
           setCompetencies([]);
           setTimeout(() => setFormsent(false), 3000);
           console.log(values);
+          controllerProject.registerProject(values);
         }}
         validate={(values) => {
           let errors = {};
+
           // Validación picture
           if (!values.picture) errors.picture = "Este campo es requerido";
 
@@ -97,9 +102,11 @@ const AddProject = () => {
         }}
       >
         {({ errors }) => (
-          <Form className="formulario">
+          <Form className="AddProjectForm">
             <div>
+              <input type="password" id="" />
               <label htmlFor="name">Agregar imagen</label>
+
               <Field
                 type="file"
                 name="picture"

@@ -1,16 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
-
-* {
-  padding: 0px;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #e8e8e8;
-  font-family: "Open Sans", sans-serif;
-}
-
 .contenedor {
   min-height: 100vh;
   display: flex;
@@ -24,7 +11,7 @@ body {
   font-family: Roboto;
 }
 
-.formulario {
+.AddProjectForm {
   width: 90%;
   margin-top: 50px;
   background: #fff;
@@ -35,11 +22,11 @@ body {
   margin: 40px auto;
 }
 
-.formulario > div {
+.AddProjectForm > div {
   margin-bottom: 20px;
 }
 
-.formulario label {
+.AddProjectForm label {
   display: block;
   font-weight: 600;
   font-size: 14px;
@@ -47,8 +34,8 @@ body {
   color: #1f1f1f;
 }
 
-.formulario input,
-.formulario textarea {
+.AddProjectForm input,
+.AddProjectForm textarea {
   font-family: "Open Sans", sans-serif;
   width: 100%;
   border-radius: 5px;
@@ -59,19 +46,19 @@ body {
   color: #1f1f1f;
 }
 
-.formulario input:focus,
-.formulario textarea:focus {
+.AddProjectForm input:focus,
+.AddProjectForm textarea:focus {
   outline: none;
   border: 2px solid #ddb500;
 }
 
-.formulario .error {
+.AddProjectForm .error {
   color: #e92b2d;
   font-weight: 600;
   font-size: 12px;
 }
 
-.formulario button[type="submit"] {
+.AddProjectForm button[type="submit"] {
   display: block;
   background: #0085ff;
   font-weight: 600;
@@ -86,11 +73,11 @@ body {
   transition: 0.3s ease all;
 }
 
-.formulario button[type="submit"]:hover {
+.AddProjectForm button[type="submit"]:hover {
   background: #0051ff;
 }
 
-.formulario .exito {
+.AddProjectForm .exito {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
@@ -98,11 +85,11 @@ body {
   color: #009b00;
 }
 
-.formulario input[type="radio"] {
+.AddProjectForm input[type="radio"] {
   width: auto;
 }
 
-.formulario button[type="submit"] {
+.AddProjectForm button[type="submit"] {
   background: #ffd808;
   font-family: "Roboto", sans-serif;
   width: 60%;
@@ -111,7 +98,7 @@ body {
   font-size: 15px;
 }
 
-.formulario button[type="submit"]:hover {
+.AddProjectForm button[type="submit"]:hover {
   background: black;
   color: #ffd808;
 }
