@@ -118,7 +118,7 @@ function Register () {
 
   return (
     <div className='container-register'>
-      <div className='register_page'>
+      <div className='container-register-page'>
         <img className='logo-register' src={logo} alt='logo' />
         <h2 className='title-register'>REGISTRATE</h2>
         {err && showErrMsg(err)}

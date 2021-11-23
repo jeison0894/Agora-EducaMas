@@ -9,6 +9,7 @@ import {
   dispatchGetAllUsers
 } from '../../../redux/actions/usersAction'
 import { Input } from '../../../componentes/input/Input'
+import './Profile.css'
 const initialState = {
   name: '',
   password: '',
@@ -47,40 +48,40 @@ function Profile () {
     setData({ ...data, [name]: value, err: '', success: '' })
   }
 
-  const changeAvatar = async e => {
-    e.preventDefault()
-    try {
-      const file = e.target.files[0]
+  // const changeAvatar = async e => {
+  //   e.preventDefault()
+  //   try {
+  //     const file = e.target.files[0]
 
-      if (!file)
-        return setData({ ...data, err: 'No files were uploaded.', success: '' })
+  //     if (!file)
+  //       return setData({ ...data, err: 'No files were uploaded.', success: '' })
 
-      if (file.size > 1024 * 1024)
-        return setData({ ...data, err: 'Size too large.', success: '' })
+  //     if (file.size > 1024 * 1024)
+  //       return setData({ ...data, err: 'Size too large.', success: '' })
 
-      if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-        return setData({
-          ...data,
-          err: 'File format is incorrect.',
-          success: ''
-        })
+  //     if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+  //       return setData({
+  //         ...data,
+  //         err: 'File format is incorrect.',
+  //         success: ''
+  //       })
 
-      let formData = new FormData()
-      formData.append('file', file)
+  //     let formData = new FormData()
+  //     formData.append('file', file)
 
-      setLoading(true)
-      const res = await axios.post('/api/upload_avatar', formData, {
-        headers: { 'content-type': 'multipart/form-data', Authorization: token }
-      })
+  //     setLoading(true)
+  //     const res = await axios.post('/api/upload_avatar', formData, {
+  //       headers: { 'content-type': 'multipart/form-data', Authorization: token }
+  //     })
 
-      setLoading(false)
-      setAvatar(res.data.url)
-    } catch (err) {
-      setData({ ...data, err: err.response.data.msg, success: '' })
-    }
-  }
+  //     setLoading(false)
+  //     setAvatar(res.data.url)
+  //   } catch (err) {
+  //     setData({ ...data, err: err.response.data.msg, success: '' })
+  //   }
+  // }
 
-  const updateInfor = () => {
+  const updateInformation = () => {
     try {
       axios.patch(
         'http://localhost:3005/api/update',
@@ -103,12 +104,12 @@ function Profile () {
     if (isLength(password))
       return setData({
         ...data,
-        err: 'Password must be at least 6 characters.',
+        err: 'La contraseña debe tener al menos 6 caracteres',
         success: ''
       })
 
     if (!isMatch(password, cf_password))
-      return setData({ ...data, err: 'Password did not match.', success: '' })
+      return setData({ ...data, err: 'Las contraseñas no coinciden', success: '' })
 
     try {
       axios.post(
@@ -119,14 +120,14 @@ function Profile () {
         }
       )
 
-      setData({ ...data, err: '', success: 'Updated Success!' })
+      setData({ ...data, err: '', success: 'Actualizacion exitosa!' })
     } catch (err) {
       setData({ ...data, err: err.response.data.msg, success: '' })
     }
   }
 
   const handleUpdate = () => {
-    if (name || avatar) updateInfor()
+    if (name || avatar) updateInformation()
     if (password) updatePassword()
   }
 
@@ -149,100 +150,90 @@ function Profile () {
 
   return (
     <>
-      <div>
         {err && showErrMsg(err)}
         {success && showSuccessMsg(success)}
         {loading && <h3>Loading.....</h3>}
-      </div>
-      <div className='profile_page'>
-        <div className='col-left'>
-          <h2>{isAdmin ? 'Admin Profile' : 'User Profile'}</h2>
+      <div className='container-main-profile'>
+        <div className='container-profile'>
+          <h2 className='title-profile'>
+            {isAdmin ? 'PERFIL ADMINISTRADOR' : 'PERFIL USUARIO'}
+          </h2>
 
-          <div className='avatar'>
-            <img src={avatar ? avatar : user.avatar} alt='' />
-            <span>
-              <i className='fas fa-camera'></i>
-              <p>Change</p>
-              <input
-                type='file'
-                name='file'
-                id='file_up'
-                onChange={changeAvatar}
-              />
-            </span>
-          </div>
-          <div className='form-group'>
-            <Input
-              label='name'
-              placeholder='Tu nombre'
-              name='name'
-              value={user.name}
-              onChange={handleChange}
+          <div className='container-image'>
+            <img
+              className='profile-image'
+              src={avatar ? avatar : user.avatar}
+              alt=''
             />
+            {/* <input
+                  type='file'
+                  name='file'
+                  id='file_up'
+                  onChange={changeAvatar}
+                /> */}
           </div>
-          <div className='form-group'>
-            <Input
-              label='email'
-              placeholder='Tu email'
-              name='email'
-              value={user.email}
-              disabled />
+          <div className='container-info-profile'>
+            <div className='form-group'>
+              <Input
+                label='Nombre'
+                placeholder='Tu nombre'
+                name='name'
+                value={user.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='form-group'>
+              <Input
+                label='Email'
+                placeholder='Tu email'
+                name='email'
+                value={user.email}
+                disabled
+              />
+            </div>
+            <div className='form-group'>
+              <Input
+                label='Nueva contraseña'
+                placeholder='Tu password'
+                name='password'
+                value={password}
+                onChange={handleChange}
+                disabled
+              />
+            </div>
+            <div className='form-group'>
+              <Input
+                label='Confirmar contraseña'
+                placeholder='Tu password'
+                name='cf_password'
+                value={cf_password}
+                onChange={handleChange}
+                disabled
+              />
+            </div>
           </div>
-          <div className='form-group'>
-            <Input
-              label='Nueva contraseña'
-              placeholder='Tu password'
-              name='password'
-              value={user.password}
-              onChange={handleChange}
-              disabled />
-          </div>
-          {/* 
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" defaultValue={user.name}
-                    placeholder="Your name" onChange={handleChange} />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" defaultValue={user.email}
-                    placeholder="Your email address" disabled />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="password">New Password</label>
-                    <input type="password" name="password" id="password"
-                    placeholder="Your password" value={password} onChange={handleChange} />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="cf_password">Confirm New Password</label>
-                    <input type="password" name="cf_password" id="cf_password"
-                    placeholder="Confirm password" value={cf_password} onChange={handleChange} />
-                </div> */}
-          <button disabled={loading} onClick={handleUpdate}>
-            Update
+          <button
+            className='profile-button-update'
+            disabled={loading}
+            onClick={handleUpdate}
+          >
+            Actualizar
           </button>
         </div>
-        <div className='col-right'>
-          <div className='title-profile'>
-            <h2>{isAdmin ? 'Users' : 'My Orders'}</h2>
-            <Link to='/create_user'>
-              <button disabled={loading} onClick={handleUpdate}>
-                Update
-              </button>
-            </Link>
-          </div>
-          <div style={{ overflowX: 'auto' }}>
-            <table className='customers'>
+      
+
+      {isAdmin ? (
+        <div className='container-main-admin'>
+          <div className='container-info-admin'>
+              <h2 className="title-profile-user">USUARIOS</h2>
+            <table className='table-info-students table table-striped'>
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Admin</th>
-                  <th>Action</th>
+                  <th>NOMBRE</th>
+                  <th>CORREO ELECTRONICO</th>
+                  <th>ADMIN</th>
+                  <th>ACCIONES</th>
                 </tr>
               </thead>
               <tbody>
@@ -260,7 +251,7 @@ function Profile () {
                     </td>
                     <td>
                       <Link to={`/edit_user/${user.id}`}>
-                        <i className='fas fa-edit' title='Edit'></i>
+                        <i className='fas fa-edit icon-edit' title='Edit'></i>
                       </Link>
                       <i
                         className='fas fa-trash-alt'
@@ -272,8 +263,20 @@ function Profile () {
                 ))}
               </tbody>
             </table>
+            <Link to='/create_user'>
+              <button
+                className='profile-button-createUser'
+                disabled={loading}
+                onClick={handleUpdate}
+              >
+                Crear usuario
+              </button>
+            </Link>
           </div>
         </div>
+      ) : (
+        ''
+      )}
       </div>
     </>
   )

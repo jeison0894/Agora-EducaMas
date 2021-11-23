@@ -52,6 +52,9 @@
   color: #000;
   font-weight: 600;
 }
+.login_page a:hover {
+  color: #ffd808;
+}
 
 /* ------------- MEDIA QUERIES --------------- */
 @media (max-width: 1059px) {
