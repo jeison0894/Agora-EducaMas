@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import Swal from 'sweetalert2'
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { isLength, isMatch } from "../../../utils/validation";
-import { showSuccessMsg, showErrMsg } from "../../../utils/notification";
+import { showSuccessMsg, showErrMsg, showConfirmation } from "../../../utils/notification";
 import {
   fetchAllUsers,
   dispatchGetAllUsers,
 } from "../../../redux/actions/usersAction";
 import { Input } from "../../../componentes/input/Input";
 import "./profile.css";
+
 const initialState = {
   name: "",
   password: "",
@@ -135,17 +137,32 @@ function Profile() {
     if (password) updatePassword();
   };
 
+
+
   const handleDelete = async (id) => {
     try {
       if (user._id !== id) {
-        if (window.confirm("Are you sure you want to delete this account?")) {
-          setLoading(true);
-          await axios.delete(`http://localhost:3005/api/delete/${id}`, {
-            headers: { Authorization: token },
-          });
-          setLoading(false);
-          setCallback(!callback);
-        }
+        let res = showConfirmation()
+        console.log(res)
+        // .then((result) => {
+        //   if (result.isConfirmed) {
+        //     Swal.fire(
+        //       'Deleted!',
+        //       'Your file has been deleted.',
+        //       'success'
+        //     )
+        //   } 
+        // })
+        // if(showConfirmation()){
+        //   console.log('ingreso')
+        // //  if (window.confirm("Are you sure you want to delete this account?")) {
+        //   setLoading(true);
+        //   await axios.delete(`http://localhost:3005/api/delete/${id}`, {
+        //     headers: { Authorization: token },
+        //   });
+        //   setLoading(false);
+        //   setCallback(!callback);
+        // }
       }
     } catch (err) {
       setData({ ...data, err: err.response.data.msg, success: "" });

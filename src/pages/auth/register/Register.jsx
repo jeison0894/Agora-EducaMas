@@ -29,7 +29,7 @@ function Register () {
     middleName,
     lastName,
     secondSurname,
-    cellphone,
+    contactNumber,
     email,
     password,
     cf_password,
@@ -76,7 +76,7 @@ function Register () {
         success: ''
       })
 
-    if (isLength(cellphone))
+    if (isLength(contactNumber))
       return setUser({
         ...user,
         err: 'El telefono debe tener al menos 10 caracteres',
@@ -103,7 +103,7 @@ function Register () {
         middleName,
         lastName,
         secondSurname,
-        cellphone,
+        contactNumber,
         email,
         password
       })
@@ -184,8 +184,8 @@ function Register () {
               <Input className="input-register"
                 label='Telefono'
                 placeholder='+57 313 300 300'
-                name='cellphone'
-                value={cellphone}
+                name='contactNumber'
+                value={contactNumber}
                 onChange={handleChangeInput}
               />
             </div>

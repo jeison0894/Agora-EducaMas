@@ -11,6 +11,7 @@ import './App.css'
 import Unification from './Unification'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
 
+
 function App () {
   const dispatch = useDispatch()
   const token = useSelector(state => state.token)
@@ -54,6 +55,10 @@ function App () {
       })
     }
   }, [token, auth.isTeacher, dispatch])
+
+
+  
+
   return (
     <>
       <Autentification />

@@ -8,6 +8,7 @@ function ActivationEmail () {
   const [err, setErr] = useState('')
   const [success, setSuccess] = useState('')
 
+  
   useEffect(() => {
     if (activation_token) {
       const activationEmail = async () => {

@@ -10,6 +10,8 @@ import Profile from '../../pages/auth/profile/Profile'
 import EditUser from '../../pages/auth/profile/EditUser'
 import Register from '../../pages/auth/register/Register'
 import Header from '../../pages/auth/header/Header'
+import ActivationEmail from '../../pages/auth/activationEmail/ActivationEmail'
+import Deliverie from '../../pages/Deliverie'
 
 function Autentification () {
   const auth = useSelector(state => state.auth)
@@ -25,6 +27,7 @@ function Autentification () {
           exact
         />
         <Route path= '/register' element={<Register/>} exact/>
+        <Route path= '/user/activate/:activation_token' element={<ActivationEmail/>} exact/>
         <Route path='/forgot_password' element={<ForgotPassword />} exact />
         <Route
           path='/profile'
@@ -44,7 +47,14 @@ function Autentification () {
         />
         <Route path='/' element={isLogged ? <Landing/> : <Login/>}
           exact/>
+        
+        <Route path='/user/deliverie/:id_deliverie' element={isLogged ? <Deliverie/> : <NotFound/>}
+          exact/>
+
+
       </Routes>
+
+
     </Router>
   )
 }
