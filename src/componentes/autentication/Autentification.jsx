@@ -10,6 +10,7 @@ import Profile from '../../pages/auth/profile/Profile'
 import EditUser from '../../pages/auth/profile/EditUser'
 import Register from '../../pages/auth/register/Register'
 import Header from '../../pages/auth/header/Header'
+import ActivationEmail from '../../pages/auth/activationEmail/ActivationEmail'
 
 function Autentification () {
   const auth = useSelector(state => state.auth)
@@ -17,7 +18,6 @@ function Autentification () {
   return (
     <Router>
       <Header/>
-      {/* <EditUser/> */}
       <Routes>
         <Route
           path='/login'
@@ -44,6 +44,7 @@ function Autentification () {
         />
         <Route path='/' element={isLogged ? <Landing/> : <Login/>}
           exact/>
+          <Route path= '/user/activate/:activation_token' element={<ActivationEmail/>} exact/>
       </Routes>
     </Router>
   )

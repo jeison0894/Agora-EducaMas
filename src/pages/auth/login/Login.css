@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 40px;
   background-color: #FFF9DA;
 }
 
@@ -57,6 +57,16 @@
 }
 
 /* ------------- MEDIA QUERIES --------------- */
+@media (max-width: 1290px) { 
+  .login-page {
+    height:90%;
+  }
+ }
+@media (max-width: 1238px) {
+  .container-register-page {
+    height:90%;
+  }
+ }
 @media (max-width: 1059px) {
   .form {
     margin-top: 70px;
@@ -65,10 +75,10 @@
     margin: 50px auto 30px auto; 
   }
   .login-page{
-    height: 90vh;
+    height: 85%;
   }
 }
-/* ------------- MEDIA QUERIES --------------- */
+
 @media (max-width: 300px) {
   .button-login {
     margin: 20px auto;

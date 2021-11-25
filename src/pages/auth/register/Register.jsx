@@ -29,10 +29,10 @@ function Register () {
     middleName,
     lastName,
     secondSurname,
-    cellphone,
     email,
     password,
     cf_password,
+    contactNumber,
     err,
     success
   } = user
@@ -76,7 +76,7 @@ function Register () {
         success: ''
       })
 
-    if (isLength(cellphone))
+    if (isLength(contactNumber))
       return setUser({
         ...user,
         err: 'El telefono debe tener al menos 10 caracteres',
@@ -103,11 +103,13 @@ function Register () {
         middleName,
         lastName,
         secondSurname,
-        cellphone,
         email,
-        password
+        password,
+        contactNumber
+       
+        
       })
-
+      showSuccessMsg(success)
       setUser({ ...user, err: '', success: res.data.msg })
     } catch (err) {
       showErrMsg(err.response.data.msg)
@@ -115,7 +117,6 @@ function Register () {
         setUser({ ...user, err: err.response.data.msg, success: '' })
     }
   }
-
   return (
     <div className='container-register'>
       <div className='container-register-page'>
@@ -167,6 +168,7 @@ function Register () {
               />
               <Input className="input-register"
                 label='Contraseña'
+                type='password'
                 placeholder='******'
                 name='password'
                 value={password}
@@ -176,6 +178,7 @@ function Register () {
             <div className='container-register-input'>
               <Input className="input-register"
                 label='Confirmar contraseña'
+                type='password'
                 placeholder='******'
                 name='cf_password'
                 value={cf_password}
@@ -184,17 +187,11 @@ function Register () {
               <Input className="input-register"
                 label='Telefono'
                 placeholder='+57 313 300 300'
-                name='cellphone'
-                value={cellphone}
+                name='contactNumber'
+                value={contactNumber}
                 onChange={handleChangeInput}
               />
             </div>
-            {/* <div className='container-register-input'>
-              <label>Ingresa una imagen</label>
-              <button className='button-submit-photo' type='submit'>
-                Escoger un archivo
-              </button>
-            </div> */}
             {auth.isAdmin ? (
                 <select className='select'>
                   <option value='Administrador' >Administrador</option>

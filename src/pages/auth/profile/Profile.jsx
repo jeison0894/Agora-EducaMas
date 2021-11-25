@@ -47,38 +47,38 @@ function Profile () {
     setData({ ...data, [name]: value, err: '', success: '' })
   }
 
-  // const changeAvatar = async e => {
-  //   e.preventDefault()
-  //   try {
-  //     const file = e.target.files[0]
+  const changeAvatar = async e => {
+    e.preventDefault()
+    try {
+      const file = e.target.files[0]
 
-  //     if (!file)
-  //       return setData({ ...data, err: 'No files were uploaded.', success: '' })
+      if (!file)
+        return setData({ ...data, err: 'No files were uploaded.', success: '' })
 
-  //     if (file.size > 1024 * 1024)
-  //       return setData({ ...data, err: 'Size too large.', success: '' })
+      if (file.size > 1024 * 1024)
+        return setData({ ...data, err: 'Size too large.', success: '' })
 
-  //     if (file.type !== 'image/jpeg' && file.type !== 'image/png')
-  //       return setData({
-  //         ...data,
-  //         err: 'File format is incorrect.',
-  //         success: ''
-  //       })
+      if (file.type !== 'image/jpeg' && file.type !== 'image/png')
+        return setData({
+          ...data,
+          err: 'File format is incorrect.',
+          success: ''
+        })
 
-  //     let formData = new FormData()
-  //     formData.append('file', file)
+      let formData = new FormData()
+      formData.append('file', file)
 
-  //     setLoading(true)
-  //     const res = await axios.post('/api/upload_avatar', formData, {
-  //       headers: { 'content-type': 'multipart/form-data', Authorization: token }
-  //     })
+      setLoading(true)
+      const res = await axios.post('/api/upload_avatar', formData, {
+        headers: { 'content-type': 'multipart/form-data', Authorization: token }
+      })
 
-  //     setLoading(false)
-  //     setAvatar(res.data.url)
-  //   } catch (err) {
-  //     setData({ ...data, err: err.response.data.msg, success: '' })
-  //   }
-  // }
+      setLoading(false)
+      setAvatar(res.data.url)
+    } catch (err) {
+      setData({ ...data, err: err.response.data.msg, success: '' })
+    }
+  }
 
   const updateInformation = () => {
     try {
@@ -165,12 +165,12 @@ function Profile () {
               src={avatar ? avatar : user.avatar}
               alt=''
             /> 
-             {/* <input
+             <input
                   type='file'
                   name='file'
                   id='file_up'
                   onChange={changeAvatar}
-                /> */}
+                />
           </div>
           <div className='container-info-profile'>
             <div className='form-group'>
@@ -245,9 +245,9 @@ function Profile () {
                     <td>{user.email}</td>
                     <td>
                       {user.role === 1 ? (
-                        <i className='fas fa-check' title='Admin'></i>
+                        <i className='fas fa-check icon-check' title='Admin'></i>
                       ) : (
-                        <i className='fas fa-times' title='User'></i>
+                        <i className='fas fa-times icon-times' title='User'></i>
                       )}
                     </td>
                     <td>
@@ -255,7 +255,7 @@ function Profile () {
                         <i className='fas fa-edit icon-edit' title='Edit'></i>
                       </Link>
                       <i
-                        className='fas fa-trash-alt'
+                        className='fas fa-trash-alt icon-trash'
                         title='Remove'
                         onClick={() => handleDelete(user.id)}
                       ></i>

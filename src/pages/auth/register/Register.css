@@ -12,14 +12,13 @@ button {
 }
 .container-register {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff9da;
 }
 .container-register-page {
-  height: 95%;
+  margin-top: 5px;
   max-width: 776px;
   border-radius: 14px;
   width: 100%;
@@ -87,9 +86,20 @@ button {
   border: 2px solid #ffd808;
 }
 /* -------------MEDIA QUERIES--------------- */
+@media (max-width: 1280px) { 
+  .container-register-page {
+    height:90%;
+  }
+ }
+@media (max-width: 1238px) {
+  .container-register-page {
+    height: 98%;
+  }
+ }
+
 @media (max-width: 1059px) {
   .container-register-page {
-    height: 99%;
+    height: 94%;
   }
   .title-register,
   .link-register {
@@ -123,14 +133,12 @@ button {
     width: 30%;
   }
 }
-/* -------------MEDIA QUERIES--------------- */
 @media (max-width: 600px) {
   .title-register,
   .link-register {
     font-size: 14px;
   }
 }
-/* -------------MEDIA QUERIES--------------- */
 @media (max-width: 370px) {
   .button-submit-photo {
     font-size: 15px;

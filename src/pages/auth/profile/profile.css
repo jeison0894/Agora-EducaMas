@@ -96,10 +96,10 @@
 .table-info-students i {
   cursor: pointer;
 }
-.table-info-students .fa-check {
+.table-info-students .icon-check {
   color: green;
 }
-.table-info-students .fa-times {
+.table-info-students .icon-times {
   color: red;
 }
 .table-info-students .icon-edit {
@@ -108,7 +108,7 @@
   color: black;
   font-size: 15px;
 }
-.table-info-students .fa-trash-alt {
+.table-info-students .icon-trash {
   background: rgba(255, 218, 10, 0.835);
   padding: 7px;
   color: black !important;
