@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
-import * as controllerProject from "../../../../controllers/controllerProject";
 import "./showProjects.css";
 import { Link } from "react-router-dom";
 import TitleSectionWithButton from "../../../../componentes/titles/TitleSectionWitButton";
 import { useSelector } from "react-redux";
 
 export const ShowProjects = () => {
-  const [projects, setProjects] = useState([]);
-  const token = useSelector((state) => state.token);
-
-  useEffect(() => {
-    const listProject = async () => {
-      try {
-        const res = await controllerProject.listProjects(token);
-        setProjects(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    listProject();
-  }, []);
+  const projects = useSelector((state) => state.projects)
 
   return (
     <>

@@ -1,44 +1,14 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import TitleSection from "../../../../componentes/titles/TitleSection";
 import InputSend from "./addLink/InputSend";
 import "./deliveryStyles.css";
-import * as controllerProject from "../../../../controllers/controllerProject";
 
 const DeliveryProjectTrainer = () => {
-  const [projects, setProjects] = useState([])
-  const [deliverie, setDeliverie] = useState([])
+  const projects = useSelector((state) => state.projects)
+  const deliveries = useSelector((state) => state.deliveries)
   const students = useSelector((state) => state.users)
-  const token = useSelector((state) => state.token)
 
-  useEffect(() => {
-    const listProject = async () => {
-      try {
-        const res = await controllerProject.listProjects(token);
-        setProjects(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    listProject();
-  }, []);
-
-  // useEffect(() => {
-  //   const fetchAll = async () => {
-  //     const resProjects = await axios.get("http://localhost:3005/api/agora/get-projects",{
-  //       headers: {Authorization: token}})
-  //     setProjects(resProjects.data)
-  //     const resDeliverie = await axios.get("http://localhost:3005/api/agora/get-deliveries",{
-  //       headers: {Authorization: token}})
-  //     setDeliverie(resDeliverie.data)
-  //   }
-  //   fetchAll()
-  //   console.log(projects)
-  //   console.log(deliverie)
-  //   console.log(students)
-  // }, [])
-  
 
 
 

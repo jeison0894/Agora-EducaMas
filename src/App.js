@@ -9,6 +9,8 @@ import {
 import Autentification from './componentes/autentication/Autentification'
 import Unification from './Unification'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
+import { dispatchGetAllProjects, fetchAllProjects } from './redux/actions/projectsAction'
+import { dispatchGetAllDeliveries, fetchAllDeliveries } from './redux/actions/deliveriesAction'
 
 
 function App () {
@@ -28,7 +30,6 @@ function App () {
           'http://localhost:3005/api/refresh_token',
           { refreshtoken }
         )
-        console.log(res)
         dispatch({ type: 'GET_TOKEN', payload: res.data.access_token })
       }
       getToken()
@@ -52,11 +53,16 @@ function App () {
       fetchAllStudents(token).then(res => {
         dispatch(dispatchGetAllStudents(res))
       })
+      fetchAllProjects(token).then(res => {
+        dispatch(dispatchGetAllProjects(res))
+      })
+      fetchAllDeliveries(token).then(res => {
+        dispatch(dispatchGetAllDeliveries(res))
+      })
     }
   }, [token, auth.isTeacher, dispatch])
 
-
-  
+    
 
   return (
     <>

@@ -1,16 +1,17 @@
 import ACTIONS from '../actions/'
 
-const users =[]
+const projects = []
 
-const usersReducer = (state = users, action) => {
+const projectsReducer = (state = projects, action) => {
     switch(action.type){
         case ACTIONS.GET_ALL_PROJECTS:
             return action.payload
-        case ACTIONS.GET_ALL_STUDENTS:
-            return action.payload
+
         default:
             return state
     }
 }
 
-export default usersReducer
+export default projectsReducer
+
+    

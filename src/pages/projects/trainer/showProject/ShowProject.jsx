@@ -15,7 +15,6 @@ const ShowProject = () => {
       try {
         const id = params.id;
         const res = await controllerProject.oneproject(id, token);
-        // const data = await res.json();
         setProjects(res.data);
       } catch (error) {
         console.log(error);
