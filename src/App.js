@@ -7,7 +7,6 @@ import {
   fetchUser
 } from './redux/actions/authAction'
 import Autentification from './componentes/autentication/Autentification'
-import './App.css'
 import Unification from './Unification'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
 
@@ -61,8 +60,8 @@ function App () {
 
   return (
     <>
-      <Autentification />
-      {/* <Unification /> */}
+      
+      <Unification />
     </>
   )
 }

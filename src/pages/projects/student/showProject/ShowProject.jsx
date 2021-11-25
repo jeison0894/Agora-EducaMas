@@ -3,20 +3,18 @@ import * as controllerProject from "../../../../controllers/controllerProject";
 import { useParams } from "react-router-dom";
 import "./showproject.css";
 import TitleSectionWithButton from "../../../../componentes/titles/TitleSectionWitButton";
-import { useSelector } from "react-redux";
 
 const ShowProject = () => {
   const params = useParams();
   const [projects, setProjects] = useState([]);
-  const token = useSelector((state) => state.token);
 
   useEffect(() => {
     const oneproject = async () => {
       try {
         const id = params.id;
-        const res = await controllerProject.oneproject(id, token);
-        // const data = await res.json();
-        setProjects(res.data);
+        const res = await controllerProject.oneproject(id);
+        const data = await res.json();
+        setProjects(data);
       } catch (error) {
         console.log(error);
       }
@@ -31,8 +29,8 @@ const ShowProject = () => {
     <>
       <TitleSectionWithButton
         name={"Contexto del proyecto"}
-        btnName={"Ver las entregas"}
-        url={"/entregasFormador "}
+        btnName={"Entregar Proyecto"}
+        url={"/verEntregas"}
       />
       <div className="viewProjectContainer">
         <div className="allProjectContainer">

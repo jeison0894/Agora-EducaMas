@@ -1,3 +1,5 @@
+import axios from "axios";
+
 ////link para post
 export const API_URLP = "http://localhost:3005/api/agora/new-project";
 ////link para get
@@ -7,12 +9,18 @@ const API_URL = "http://localhost:3005/api/agora/get-projects";
 ////link para get-one
 const API_URL2 = `http://localhost:3005/api/agora/get-one-project`;
 
-export const listProjects = async () => {
-  return await fetch(API_URL);
+
+export const listProjects = async (token) => {
+  const res = await axios.get("http://localhost:3005/api/agora/get-projects",{
+          headers: {Authorization: token}})
+  return res;
 };
 
-export const oneproject = async (id) => {
-  return await fetch(`${API_URL2}/${id}`);
+export const oneproject = async (id, token) => {
+  const res = await axios.get(`${API_URL2}/${id}`,{
+          headers: {Authorization: token}})
+  return res;
+  
 };
 
 export const registerProject = async (newProject) => {

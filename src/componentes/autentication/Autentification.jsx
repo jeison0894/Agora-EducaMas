@@ -12,7 +12,7 @@ import Register from '../../pages/auth/register/Register'
 import Header from '../../pages/auth/header/Header'
 import ActivationEmail from '../../pages/auth/activationEmail/ActivationEmail'
 import Deliverie from '../../pages/Deliverie'
-
+ 
 function Autentification () {
   const auth = useSelector(state => state.auth)
   const { isLogged, isAdmin } = auth
