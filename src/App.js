@@ -9,7 +9,7 @@ import {
   dispatchLogin,
   fetchUser
 } from './redux/actions/authAction'
-import Autentification from './componentes/autentication/Autentification'
+import Authentication from './componentes/authentication/Authentication'
 import './App.css'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
 
@@ -61,7 +61,7 @@ function App () {
         {/* <Header /> */}
         {/* <AddProject />
          <Footer />  */}
-      <Autentification />
+      <Authentication />
     
     </>
   )
