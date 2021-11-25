@@ -27,7 +27,7 @@ export default function Header() {
                   <span>
                     <img src={dashboardIcon} alt="dashboardIcon" />
                   </span>
-                  <Link className="linksHeader" to="*">
+                  <Link className="linksHeader" to="/dashboard">
                     Dashboard
                   </Link>
                 </Dropdown.Item>

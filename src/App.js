@@ -6,8 +6,7 @@ import {
   dispatchLogin,
   fetchUser,
 } from "./redux/actions/authAction";
-import Autentification from "./componentes/autentication/Autentification";
-import "./App.css";
+//import Autentification from "./componentes/autentication/Autentification";
 import Unification from "./Unification";
 
 function App() {
@@ -47,8 +46,8 @@ function App() {
   }, [token, dispatch]);
   return (
     <>
-      <Autentification />
-      {/* <Unification /> */}
+      {/* <Autentification /> */}
+      <Unification />
     </>
   );
 }
