@@ -11,7 +11,6 @@ const DeliveryProjectTrainer = () => {
 
 
 
-
   return (
     <>
     {console.log(students, projects)}

@@ -10,13 +10,15 @@ import Autentification from './componentes/autentication/Autentification'
 import Unification from './Unification'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
 import { dispatchGetAllProjects, fetchAllProjects } from './redux/actions/projectsAction'
-import { dispatchGetAllDeliveries, fetchAllDeliveries } from './redux/actions/deliveriesAction'
+import { dispatchGetAllDeliveries, dispatchGetDeliveriesByStudent, fetchAllDeliveries, fetchDeliveriesByStudent } from './redux/actions/deliveriesAction'
 
 
 function App () {
   const dispatch = useDispatch()
   const token = useSelector(state => state.token)
   const auth = useSelector(state => state.auth)
+
+  const id_user = auth.user.id
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedAgoraUser')
@@ -61,6 +63,17 @@ function App () {
       })
     }
   }, [token, auth.isTeacher, dispatch])
+
+  useEffect(() => {
+    if (auth.isStudent) {
+      fetchAllProjects(token).then(res => {
+        dispatch(dispatchGetAllProjects(res))
+      })
+      fetchDeliveriesByStudent(token, id_user ).then(res => {
+        dispatch(dispatchGetDeliveriesByStudent(res))
+      })
+    }
+  }, [token, auth.isStudent, dispatch])
 
     
 
