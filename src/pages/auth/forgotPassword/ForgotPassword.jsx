@@ -48,6 +48,7 @@ function ForgotPassword() {
                 {success && showSuccessMsg(success)}
 
                 <Input 
+                type="email"
                 label='Ingresa tu correo electronico'
                 placeholder="Juan@hotmail.com"
                 name='email'

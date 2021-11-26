@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
-import { isEmpty, isEmail, isLength, isMatch } from '../../../utils/validation'
+import { isEmpty, isEmail, isLength, isMatch, isLengthContactNumber} from '../../../utils/validation'
 import './Register.css'
 import { Input } from '../../../componentes/input/Input'
 import logo from '../../../assets/logos/programateLogo.png'
@@ -72,23 +72,25 @@ function Register () {
     if (!isEmail(email))
       return setUser({
         ...user,
-        err: 'Este correo electronico ya existe :(',
+        err: 'Este correo electrónico ya existe :(',
         success: ''
       })
 
-    if (isLength(contactNumber))
-      return setUser({
-        ...user,
-        err: 'El telefono debe tener al menos 10 caracteres',
-        success: ''
-      })
-
+      
+    
     if (isLength(password))
       return setUser({
         ...user,
         err: 'La contraseña debe tener al menos 6 caracteres',
         success: ''
       })
+      if (isLengthContactNumber(contactNumber))
+      return setUser({
+        ...user,
+        err: 'El número de teléfono debe tener al menos 10 caracteres',
+        success: ''
+      })
+
 
     if (!isMatch(password, cf_password))
       return setUser({
