@@ -4,6 +4,8 @@ import token from './tokenReducer'
 import users from './usersReducer'
 import projects from './projectsReducer'
 import deliveries from './deliveriesReducer'
+import annuncies from './annunciesReducer'
+
 
 export default combineReducers({
     auth,
@@ -11,5 +13,6 @@ export default combineReducers({
     users,
     projects,
     deliveries,
+    annuncies,
     
 })
