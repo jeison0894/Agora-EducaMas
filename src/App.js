@@ -68,7 +68,7 @@ function App () {
   }, [token, auth.isTeacher, dispatch])
 
   useEffect(() => {
-    if (auth.isStudent) {
+    // if (auth.isStudent) {
       fetchAllProjects(token).then(res => {
         dispatch(dispatchGetAllProjects(res))
         
@@ -79,7 +79,7 @@ function App () {
       fetchAllAnunncies(token).then(res => {
         dispatch(dispatchGetAllAnnucies(res))
       })
-    }
+    // }
   }, [token, auth.isStudent, dispatch])
 
     

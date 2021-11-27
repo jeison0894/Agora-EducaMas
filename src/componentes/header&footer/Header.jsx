@@ -104,7 +104,7 @@ export default function Header() {
           {isLogged ? (
             <UserLink user={user} handleLogout={handleLogout} />
           ) : (
-            <Link to="/login">
+            <Link  className="link-singIn" to="/login">
               <i
                 className="fas fa-user icon-signIn"
                 style={{ marginRight: "1rem" }}

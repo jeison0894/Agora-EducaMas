@@ -7,8 +7,7 @@ import { useSelector } from 'react-redux'
 const Dashboard = () => {
   const projects = useSelector(state => state.projects)
   const annuncies = useSelector(state => state.annuncies)
-  console.log(projects)
-  console.log(annuncies)
+  
 
   const [competencies, setCompetencies] = useState()
   const [exito, setExito] = useState()
@@ -31,7 +30,6 @@ const Dashboard = () => {
         const res = await controllerDashBoard.listDash(id)
         const data = await res.json()
         setCompetencies(data)
-        // console.log(data);
         success(data)
         levelsOfEvaluate(data)
         evaluateOutcome(data)
