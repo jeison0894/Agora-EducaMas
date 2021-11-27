@@ -104,7 +104,7 @@ const AddProject = () => {
         {({ errors }) => (
           <Form className="AddProjectForm">
             <div>
-              <input type="password" id="" />
+      
               <label htmlFor="name">Agregar imagen</label>
 
               <Field

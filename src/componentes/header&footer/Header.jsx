@@ -27,9 +27,7 @@ export default function Header() {
     }
   };
 
-  const transForm = {
-    transform: isLogged ? "translateY(-5px)" : 0,
-  };
+  
   return (
     <>
       <header>
@@ -51,7 +49,7 @@ export default function Header() {
                   <span>
                     <img src={dashboardIcon} alt="dashboardIcon" />
                   </span>
-                  <Link className="linksHeader" to="/dashboard">
+                  <Link className="linksHeader" to="/">
                     Dashboard
                   </Link>
                 </Dropdown.Item>
@@ -81,7 +79,7 @@ export default function Header() {
           <div className="iconsContainer">
             <div>
               <img src={dashboardIcon} alt="dashboardIcon" />
-              <Link className="linksHeader" to="/dashboard">
+              <Link className="linksHeader" to="/">
                 Dashboard
               </Link>
             </div>
@@ -106,17 +104,18 @@ export default function Header() {
           
          
 
-<ul style={transForm}>
-        {isLogged ? (
-          <UserLink user={user} handleLogout={handleLogout} />
-        ) : (
-          <li>
-            <Link to='/login'>
-              <i className='fas fa-user icon-signIn'></i> Sign in
+
+          {isLogged ? (
+            <UserLink user={user} handleLogout={handleLogout} />
+          ) : (
+            <Link to="/login">
+              <i
+                className="fas fa-user icon-signIn"
+                style={{ marginRight: "1rem" }}
+              ></i>
+              Sign in
             </Link>
-          </li>
-        )}
-      </ul>
+          )}
              
          </div>
        
