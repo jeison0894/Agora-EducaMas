@@ -60,6 +60,7 @@ function Unification() {
           exact
         />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/:id" element={<Dashboard />} />
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<ShowProjects />} />
           <Route path="/proyectos/:id" element={<ShowProject />} />
@@ -74,6 +75,8 @@ function Unification() {
             element={<DeliveryProjectStudent />}
           />
           <Route path="*" element={<Error404 />} />
+         
+
         </Routes>
       </Router>
     </>
