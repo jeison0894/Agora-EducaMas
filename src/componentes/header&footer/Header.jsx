@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import UserLink from "./UserLink";
 import "./UserLink.css";
 
-
 export default function Header() {
   const auth = useSelector((state) => state.auth);
 
@@ -33,9 +32,7 @@ export default function Header() {
   return (
     <>
       <header>
-     
         <div className="headerContainer">
-        
           <div className="hamburguerMenu">
             <Dropdown>
               <Dropdown.Toggle
@@ -45,7 +42,7 @@ export default function Header() {
               >
                 <i style={{ margin: "0" }} className="fas fa-bars"></i>
               </Dropdown.Toggle>
-            
+
               <Dropdown.Menu className="hamburguerMenu">
                 <Dropdown.Item>
                   <span>
@@ -72,56 +69,45 @@ export default function Header() {
                   </Link>
                 </Dropdown.Item>
               </Dropdown.Menu>
-           
             </Dropdown>
           </div>
-               
+
           <img className="Logo" src={logo} alt="Prográmate-logotipo" />
           {isLogged ? (
-          <div className="iconsContainer">
-            <div>
-              <img src={dashboardIcon} alt="dashboardIcon" />
-              <Link className="linksHeader" to="/dashboard">
-                Dashboard
-              </Link>
-            </div>
+            <div className="iconsContainer">
+              <div>
+                <img src={dashboardIcon} alt="dashboardIcon" />
+                <Link className="linksHeader" to="/dashboard">
+                  Dashboard
+                </Link>
+              </div>
 
-            <div>
-              <img src={projectIcon} alt="projectIcon" />
-              <Link className="linksHeader" to="/proyectos">
-                Proyectos
-              </Link>
-            </div>
+              <div>
+                <img src={projectIcon} alt="projectIcon" />
+                <Link className="linksHeader" to="/proyectos">
+                  Proyectos
+                </Link>
+              </div>
 
-            <div>
-              <img src={forumIcon} alt="forumIcon" />
-              <Link className="linksHeader" to="/anuncios">
-                Anuncios
-              </Link>
+              <div>
+                <img src={forumIcon} alt="forumIcon" />
+                <Link className="linksHeader" to="/anuncios">
+                  Anuncios
+                </Link>
+              </div>
             </div>
-          </div>
-           ) : (
+          ) : (
             ""
           )}
-          
-         
 
-<ul style={transForm}>
-        {isLogged ? (
-          <UserLink user={user} handleLogout={handleLogout} />
-        ) : (
-          <li>
-            <Link to='/login'>
-              <i className='fas fa-user icon-signIn'></i> Sign in
+          {isLogged ? (
+            <UserLink user={user} handleLogout={handleLogout} />
+          ) : (
+            <Link to="/login">
+              <i className="fas fa-user icon-signIn"></i> Sign in
             </Link>
-          </li>
-        )}
-      </ul>
-             
-         </div>
-       
-          
-        
+          )}
+        </div>
       </header>
     </>
   );
