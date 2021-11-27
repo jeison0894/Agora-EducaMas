@@ -1,16 +1,27 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import TitleSection from "../../../../componentes/titles/TitleSection";
 import AddLink from "./addLink/addLinks";
 import "./deliveryStyles.css";
 
 const DeliveryProjectStudent = () => {
+  const projects = useSelector((state) => state.projects);
+  const newdateFormat = (date) => {
+    let newDate = new Date(date).toLocaleDateString();
+    return newDate;
+  };
   return (
     <>
       <TitleSection name={"ENTREGAS"} />
       <div className="deliveryContainer">
         <div className="selectsContainer">
           <select>
-            <option value="">Ver Proyectos entregados</option>
+            <option hidden>Ver Proyectos entregados</option>
+            {projects.map((el, i) => (
+              <option key={i} value={el.name} style={{ padding: "1rem" }}>
+                {el.name} - {newdateFormat(el.date)}
+              </option>
+            ))}
           </select>
         </div>
 

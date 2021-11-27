@@ -104,7 +104,11 @@ export default function Header() {
             <UserLink user={user} handleLogout={handleLogout} />
           ) : (
             <Link to="/login">
-              <i className="fas fa-user icon-signIn"></i> Sign in
+              <i
+                className="fas fa-user icon-signIn"
+                style={{ marginRight: "1rem" }}
+              ></i>
+              Sign in
             </Link>
           )}
         </div>
