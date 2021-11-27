@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 40px;
   background-color: #FFF9DA;
 }
 
@@ -13,7 +13,7 @@
   flex-direction: column;
   gap: 20px 0 !important;
 }
-.login_page {
+.login-page{
   height: 80vh;
   width: 100%;
   max-width: 400px;
@@ -41,22 +41,32 @@
   cursor: pointer ;
   border: none;
 }
-.login_page p {
+.login-page p {
   font-size: 14px;
   cursor: pointer;
   margin: 15px 0;
   font-weight: 600;
 }
-.login_page a {
+.login-page a {
   font-size: 14px;
   color: #000;
   font-weight: 600;
 }
-.login_page a:hover {
+.login-page a:hover {
   color: #ffd808;
 }
 
 /* ------------- MEDIA QUERIES --------------- */
+@media (max-width: 1290px) { 
+  .login-page {
+    height:90%;
+  }
+ }
+@media (max-width: 1238px) {
+  .container-register-page {
+    height:90%;
+  }
+ }
 @media (max-width: 1059px) {
   .form {
     margin-top: 70px;
@@ -64,16 +74,11 @@
   .button-login { 
     margin: 50px auto 30px auto; 
   }
-  .login_page{
-    height: 90vh;
+  .login-page{
+    height: 85%;
   }
 }
-@media (max-width: 400px) {
-  .login_page{
-    width: 96%;;
-  }
-}
-/* ------------- MEDIA QUERIES --------------- */
+
 @media (max-width: 300px) {
   .button-login {
     margin: 20px auto;

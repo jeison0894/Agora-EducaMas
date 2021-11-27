@@ -12,6 +12,7 @@ header {
   margin: 35px auto;
 }
 
+
 .Logo {
   height: 45px;
 }
@@ -91,6 +92,13 @@ footer {
 .hamburguerMenu {
   display: none;
   cursor: pointer;
+}
+.link-singIn{
+  text-transform: uppercase;
+  color: #000;
+}
+.link-singIn:hover{
+  color: #222222;
 }
 
 /*------------Dropdown Styles----------*/

@@ -67,6 +67,7 @@ function App () {
     if (auth.isStudent) {
       fetchAllProjects(token).then(res => {
         dispatch(dispatchGetAllProjects(res))
+        
       })
       fetchDeliveriesByStudent(token, id_user ).then(res => {
         dispatch(dispatchGetDeliveriesByStudent(res))

@@ -4,7 +4,7 @@ import { Dropdown } from 'react-bootstrap'
 const UserLink = ({ user, handleLogout }) => {
   return (
     <>
-      <div className="container-psd">
+      <div className="container-main-avatarContainer">
         <div className="avatarContainer">
           <img className="img-avatar" src={user.avatar} alt="Avatar" />
           <p>{user.name}</p>

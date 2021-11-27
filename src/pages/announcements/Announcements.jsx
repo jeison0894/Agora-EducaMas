@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import TitleSectionWithButton from "../../componentes/titles/TitleSectionWitButton";
 import * as controllerAnnounce from "../../controllers/controllerAnnounce";
+import TitleSection from "../../componentes/titles/TitleSection";
+import { useSelector } from "react-redux";
 
 export const Announcements = () => {
+  const auth = useSelector(state => state.auth)
   const [announce, setAnnounce] = useState([]);
 
   useEffect(() => {
@@ -25,11 +28,17 @@ export const Announcements = () => {
 
   return (
     <>
+    {auth.isAdmin ? (
       <TitleSectionWithButton
         name={"Anuncios"}
         btnName={"Crear anuncio"}
         url={"/crearAnuncio"}
       />
+      ) : (
+        <TitleSection name="CREAR ANUNCIO" />
+
+      )}
+
       <div style={{ marginBottom: "100px" }}>
         {announce.map((el, i) => (
           <div key={i} className="announceContainer">
