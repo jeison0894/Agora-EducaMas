@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import UserLink from "./UserLink";
 import "./UserLink.css";
 
-
 export default function Header() {
   const auth = useSelector((state) => state.auth);
 
@@ -27,103 +26,97 @@ export default function Header() {
     }
   };
 
-  
   return (
     <>
       <header>
-     
         <div className="headerContainer">
-        {isLogged ? (
-          <div className="hamburguerMenu">
-            <Dropdown>
-              <Dropdown.Toggle
-                variant="bg-transparent"
-                id="dropdown-basic"
-                className="caret-off"
-              >
-                <i style={{ margin: "0" }} className="fas fa-bars"></i>
-              </Dropdown.Toggle>
-            
-              <Dropdown.Menu className="hamburguerMenu">
-                <Dropdown.Item>
-                  <span>
-                    <img src={dashboardIcon} alt="dashboardIcon" />
-                  </span>
-                  <Link className="linksHeader" to="/">
-                    Dashboard
-                  </Link>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <span>
-                    <img src={projectIcon} alt="projectIcon" />
-                  </span>
-                  <Link className="linksHeader" to="/proyectos">
-                    Proyectos
-                  </Link>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <span>
-                    <img src={forumIcon} alt="forumIcon" />
-                  </span>
-                  <Link className="linksHeader" to="/anuncios">
-                    Anuncios
-                  </Link>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-           
-            </Dropdown>
-          </div>
-                ) : (
-                  ""
-                )}
-          <img className="Logo" src={logo} alt="Prográmate-logotipo" />
           {isLogged ? (
-          <div className="iconsContainer">
-            <div>
-              <img src={dashboardIcon} alt="dashboardIcon" />
-              <Link className="linksHeader" to="/">
-                Dashboard
-              </Link>
-            </div>
+            <div className="hamburguerMenu">
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="bg-transparent"
+                  id="dropdown-basic"
+                  className="caret-off"
+                >
+                  <i style={{ margin: "0" }} className="fas fa-bars"></i>
+                </Dropdown.Toggle>
 
-            <div>
-              <img src={projectIcon} alt="projectIcon" />
-              <Link className="linksHeader" to="/proyectos">
-                Proyectos
-              </Link>
+                <Dropdown.Menu>
+                  <Dropdown.Item>
+                    <span>
+                      <img src={dashboardIcon} alt="dashboardIcon" />
+                    </span>
+                    <Link className="linksHeader" to="/">
+                      Dashboard
+                    </Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <span>
+                      <img src={projectIcon} alt="projectIcon" />
+                    </span>
+                    <Link className="linksHeader" to="/proyectos">
+                      Proyectos
+                    </Link>
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <span>
+                      <img src={forumIcon} alt="forumIcon" />
+                    </span>
+                    <Link className="linksHeader" to="/anuncios">
+                      Anuncios
+                    </Link>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
-
-            <div>
-              <img src={forumIcon} alt="forumIcon" />
-              <Link className="linksHeader" to="/anuncios">
-                Anuncios
-              </Link>
-            </div>
-          </div>
-           ) : (
+          ) : (
             ""
           )}
-          
-         
 
+          <img className="Logo" src={logo} alt="Prográmate-logotipo" />
+          {isLogged ? (
+            <div className="iconsContainer">
+              <div>
+                <img src={dashboardIcon} alt="dashboardIcon" />
+                <Link className="linksHeader" to="/">
+                  Dashboard
+                </Link>
+              </div>
+
+              <div>
+                <img src={projectIcon} alt="projectIcon" />
+                <Link className="linksHeader" to="/proyectos">
+                  Proyectos
+                </Link>
+              </div>
+
+              <div>
+                <img src={forumIcon} alt="forumIcon" />
+                <Link className="linksHeader" to="/anuncios">
+                  Anuncios
+                </Link>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
 
           {isLogged ? (
             <UserLink user={user} handleLogout={handleLogout} />
           ) : (
-            <Link className="link-singIn" to="/login">
+            <Link to="/login">
               <i
                 className="fas fa-user icon-signIn"
                 style={{ marginRight: "1rem" }}
               ></i>
-              Sign in
+              Ingresar
             </Link>
           )}
-             
-         </div>
-       
-          
-        
+        </div>
       </header>
+
+
+
     </>
   );
 }

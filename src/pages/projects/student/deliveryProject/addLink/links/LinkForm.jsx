@@ -21,7 +21,7 @@ export default function LinkForm({ addNewLink }) {
 
   return (
     <>
-      <Form.Group className="input-group ">
+      <Form.Group className="input-group " style={{ flexWrap: "nowrap" }}>
         <Form.Control
           id="inputResource"
           className="input"

@@ -1,6 +1,6 @@
-import ACTIONS from '../actions/'
+import ACTIONS from "../actions/";
 
-const users =[]
+const users = [];
 
 const usersReducer = (state = users, action) => {
     switch(action.type){
@@ -13,4 +13,4 @@ const usersReducer = (state = users, action) => {
     }
 }
 
-export default usersReducer
+export default usersReducer;
