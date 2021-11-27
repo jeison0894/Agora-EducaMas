@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Swal from 'sweetalert2'
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -142,27 +141,16 @@ function Profile() {
   const handleDelete = async (id) => {
     try {
       if (user._id !== id) {
-        let res = showConfirmation()
-        console.log(res)
-        // .then((result) => {
-        //   if (result.isConfirmed) {
-        //     Swal.fire(
-        //       'Deleted!',
-        //       'Your file has been deleted.',
-        //       'success'
-        //     )
-        //   } 
-        // })
-        // if(showConfirmation()){
-        //   console.log('ingreso')
-        // //  if (window.confirm("Are you sure you want to delete this account?")) {
-        //   setLoading(true);
-        //   await axios.delete(`http://localhost:3005/api/delete/${id}`, {
-        //     headers: { Authorization: token },
-        //   });
-        //   setLoading(false);
-        //   setCallback(!callback);
-        // }
+       
+       
+          if (window.confirm("Are you sure you want to delete this account?")) {
+          setLoading(true);
+          await axios.delete(`http://localhost:3005/api/delete/${id}`, {
+            headers: { Authorization: token },
+          });
+          setLoading(false);
+          setCallback(!callback);
+        }
       }
     } catch (err) {
       setData({ ...data, err: err.response.data.msg, success: "" });

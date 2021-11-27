@@ -33,7 +33,7 @@ export default function Header() {
       <header>
      
         <div className="headerContainer">
-        
+        {isLogged ? (
           <div className="hamburguerMenu">
             <Dropdown>
               <Dropdown.Toggle
@@ -73,7 +73,7 @@ export default function Header() {
            
             </Dropdown>
           </div>
-               
+           ) : ( "" )} 
           <img className="Logo" src={logo} alt="Prográmate-logotipo" />
           {isLogged ? (
           <div className="iconsContainer">

@@ -10,6 +10,7 @@ import Unification from './Unification'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
 import { dispatchGetAllProjects, fetchAllProjects } from './redux/actions/projectsAction'
 import { dispatchGetAllDeliveries, dispatchGetDeliveriesByStudent, fetchAllDeliveries, fetchDeliveriesByStudent } from './redux/actions/deliveriesAction'
+import { dispatchGetAllAnnucies, fetchAllAnunncies } from './redux/actions/annunciesAction'
 
 
 function App () {
@@ -60,6 +61,9 @@ function App () {
       fetchAllDeliveries(token).then(res => {
         dispatch(dispatchGetAllDeliveries(res))
       })
+      fetchAllAnunncies(token).then(res => {
+        dispatch(dispatchGetAllAnnucies(res))
+      })
     }
   }, [token, auth.isTeacher, dispatch])
 
@@ -70,6 +74,9 @@ function App () {
       })
       fetchDeliveriesByStudent(token, id_user ).then(res => {
         dispatch(dispatchGetDeliveriesByStudent(res))
+      })
+      fetchAllAnunncies(token).then(res => {
+        dispatch(dispatchGetAllAnnucies(res))
       })
     }
   }, [token, auth.isStudent, dispatch])

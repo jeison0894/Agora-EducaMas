@@ -2,12 +2,18 @@ import TitleSection from "../../componentes/titles/TitleSection";
 import Chart from "./charts/Chart";
 import React, { useEffect, useState } from "react";
 import * as controllerDashBoard from "./controllerDashBoard.jsx";
-import { Announcements } from "../announcements/Announcements";
-import { ShowProjects } from "../projects/trainer/showProjects/showProjects";
+import { useSelector } from "react-redux";
 
 
 
 const Dashboard = () => {
+
+  const projects = useSelector(state => state.projects)
+  const annuncies = useSelector(state => state.annuncies)
+  console.log(projects)
+  console.log(annuncies)
+
+
      
       const [competencies, setCompetencies] = useState();
       const [exito, setExito] = useState();
@@ -25,6 +31,7 @@ const Dashboard = () => {
     let progressClass = 0
   /////////////////////////////////////////////////////////////
       useEffect(() => {
+
           const list = async () => {
             try {
               
@@ -35,13 +42,20 @@ const Dashboard = () => {
               success(data)
               levelsOfEvaluate(data)
               evaluateOutcome(data)
+
+              //////////////////////////////
   
             } catch (error) {
               console.log(error);
             }
-          };
+          }; 
+
+         
+
           list();
         }, [id]);
+
+
           const aux =[] 
   
           // funcion suma matrix
@@ -95,7 +109,10 @@ const Dashboard = () => {
   
         }
 
-
+        const newdateFormat = (date) => {
+          let newDate = new Date(date).toLocaleString();
+          return newDate;
+        };
 
   return (
     <>
@@ -111,9 +128,24 @@ const Dashboard = () => {
             <p className="nameChart">Tasa de éxito de la promo</p>
             <Chart color="#0D9603" number={exito} />
           </div>
-          {/* <div><Announcements/></div>
-          <div><ShowProjects/></div> */}
-        </div>
+
+           
+{/*           <div><ShowProjects/></div> 
+ */}        </div>
+
+              <div className="containerAnnounce" style={{ marginBottom: "100px" }}>{/* //////////annuncies */}
+                      {annuncies.map((el, i) => (
+                        <div key={i} className="announceContainerDash">
+                          <h5>{el.titleAnnouncement}</h5>
+                          <div className="textAnnouncementContainerDash">
+                            <p>{el.textAnnouncement}</p>
+                            <small>
+                              <b>{newdateFormat(el.updatedAt)}</b>
+                            </small>
+                          </div>
+                        </div>
+                      ))}
+              </div>
       </div>
     </>
   );
