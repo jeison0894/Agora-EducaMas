@@ -23,7 +23,7 @@ import ActivationEmail from './pages/auth/activationEmail/ActivationEmail'
 
 
 
-function Unification() {
+function Unification({id_cohorte}) {
   const auth = useSelector(state => state.auth)
   const { isLogged, isAdmin } = auth
 
@@ -52,14 +52,15 @@ function Unification() {
           element={isLogged ? <NotFound /> : <ResetPassword />}
           exact
         />
-        <Route path='/' element={isLogged ? <Dashboard /> : <Login/>}
+        <Route path='/' element={isLogged ? <Dashboard/> : <Login/>}
           exact/>
         <Route
           path='/login'
           element={isLogged ? <NotFound /> : <Login />}
           exact
         />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+     
           <Route path="/crearProyecto" element={<AddProject />} />
           <Route path="/proyectos" element={<ShowProjects />} />
           <Route path="/proyectos/:id" element={<ShowProject />} />
@@ -74,6 +75,8 @@ function Unification() {
             element={<DeliveryProjectStudent />}
           />
           <Route path="*" element={<Error404 />} />
+         
+
         </Routes>
       </Router>
     </>
