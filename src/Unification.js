@@ -10,10 +10,9 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import AddProject from "./pages/projects/trainer/addProject/AddProject";
 import DeliveryProjectStudent from "./pages/projects/student/deliveryProject/DeliveryProjectStudent";
 import DeliveryProjectTrainer from "./pages/projects/trainer/deliveryProject/DeliveryProjectTrainer";
-// import Landing from './componentes/landing/Landing'
+import Deliverie from "./pages/deliverie/Deliverie";
 import ShowProject from "./pages/projects/trainer/showProject/ShowProject";
 import { ShowProjects } from "./pages/projects/trainer/showProjects/showProjects";
-import Autentification from "./componentes/autentication/Autentification";
 import ForgotPassword from "./pages/auth/forgotPassword/ForgotPassword";
 import ResetPassword from "./pages/auth/resetPassword/ResetPassword";
 import Profile from "./pages/auth/profile/Profile";
@@ -27,7 +26,6 @@ function Unification() {
 
   return (
     <>
-      <Autentification />
       <Router>
         <Header />
         <Routes>
@@ -80,6 +78,11 @@ function Unification() {
           />
 
           <Route path="*" element={<Error404 />} />
+          <Route
+          path="/user/deliverie/:id_deliverie"
+          element={isLogged ? <Deliverie /> : <NotFound />}
+          exact
+        />
         </Routes>
       </Router>
     </>
