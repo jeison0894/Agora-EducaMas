@@ -2,7 +2,8 @@ import React from "react";
 import TitleSection from "../../../../componentes/titles/TitleSection";
 import AddLink from "./addLink/addLinks";
 import "./deliveryStyles.css";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
+import ValidateCompetence from "../../trainer/deliveryProject/Validate/validateCompetencie/ValidateCompetence";
 
 const DeliveryProjectStudent = () => {
   const projects = useSelector((state) => state.projects);
@@ -80,7 +81,9 @@ const DeliveryProjectStudent = () => {
               <AddLink />
             </div>
           </div>
-          <div className="competenciesContainer"></div>
+          <div className="competenciesContainer">
+            <ValidateCompetence />
+          </div>
         </div>
       </div>
     </>

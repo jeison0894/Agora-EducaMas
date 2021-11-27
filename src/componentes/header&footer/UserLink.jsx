@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { Dropdown } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import { Dropdown } from "react-bootstrap";
 
 const UserLink = ({ user, handleLogout }) => {
   return (
@@ -17,11 +17,11 @@ const UserLink = ({ user, handleLogout }) => {
             ></Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile">Perfil</Link>
               </Dropdown.Item>
               <Dropdown.Item>
                 <Link to="/" onClick={handleLogout}>
-                  Logout
+                  Salir
                 </Link>
               </Dropdown.Item>
             </Dropdown.Menu>
