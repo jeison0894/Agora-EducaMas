@@ -19,6 +19,7 @@ import Profile from "./pages/auth/profile/Profile";
 import EditUser from "./pages/auth/profile/EditUser";
 import Register from "./pages/auth/register/Register";
 import ActivationEmail from "./pages/auth/activationEmail/ActivationEmail";
+import Badges from "./pages/bagdes/Bagdes";
 
 function Unification() {
   const auth = useSelector((state) => state.auth);
@@ -60,6 +61,11 @@ function Unification() {
           <Route
             path="/login"
             element={isLogged ? <NotFound /> : <Login />}
+            exact
+          />
+          <Route
+            path="/badges"
+            element={isLogged ? <Badges /> : <NotFound />}
             exact
           />
 

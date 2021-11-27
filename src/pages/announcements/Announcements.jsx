@@ -5,7 +5,8 @@ import TitleSection from "../../componentes/titles/TitleSection";
 import { useSelector } from "react-redux";
 
 export const Announcements = () => {
-  const auth = useSelector(state => state.auth)
+  const auth = useSelector((state) => state.auth);
+  const { isTeacher, isAdmin } = auth;
   const [announce, setAnnounce] = useState([]);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export const Announcements = () => {
 
   return (
     <>
-    {auth.isAdmin ? (
+    {isAdmin || isTeacher ?  (
       <TitleSectionWithButton
         name={"Anuncios"}
         btnName={"Crear anuncio"}

@@ -11,10 +11,12 @@ export const ShowProjects = () => {
   
 
   const projects = useSelector((state) => state.projects)
-  const auth = useSelector(state => state.auth)
+  const auth = useSelector((state) => state.auth);
+  const { isTeacher, isAdmin } = auth;
+
   return (
     <>
-    {auth.isAdmin ? (
+    {isAdmin || isTeacher ? (
              
       <TitleSectionWithButton
         name={"BRIEFS DE LA PROMO"}
