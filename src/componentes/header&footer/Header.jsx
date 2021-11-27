@@ -51,7 +51,7 @@ export default function Header() {
                   <span>
                     <img src={dashboardIcon} alt="dashboardIcon" />
                   </span>
-                  <Link className="linksHeader" to="/dashboard">
+                  <Link className="linksHeader" to="/">
                     Dashboard
                   </Link>
                 </Dropdown.Item>
@@ -81,7 +81,7 @@ export default function Header() {
           <div className="iconsContainer">
             <div>
               <img src={dashboardIcon} alt="dashboardIcon" />
-              <Link className="linksHeader" to="/dashboard">
+              <Link className="linksHeader" to="/">
                 Dashboard
               </Link>
             </div>
