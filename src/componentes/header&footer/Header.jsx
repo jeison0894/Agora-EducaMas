@@ -6,12 +6,36 @@ import forumIcon from "../../assets/icons/forum-icon.svg";
 import { Link } from "react-router-dom";
 import "./headerFooterStyles.css";
 import { Dropdown } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import UserLink from "./UserLink";
+import "./UserLink.css";
+
 
 export default function Header() {
+  const auth = useSelector((state) => state.auth);
+
+  const { user, isLogged } = auth;
+
+  const handleLogout = async () => {
+    try {
+      // await axios.get('/user/logout')
+      localStorage.removeItem("firstLogin");
+      localStorage.removeItem("loggedAgoraUser");
+      window.location.href = "/";
+    } catch (err) {
+      window.location.href = "/";
+    }
+  };
+
+  const transForm = {
+    transform: isLogged ? "translateY(-5px)" : 0,
+  };
   return (
     <>
       <header>
+     
         <div className="headerContainer">
+        
           <div className="hamburguerMenu">
             <Dropdown>
               <Dropdown.Toggle
@@ -21,7 +45,7 @@ export default function Header() {
               >
                 <i style={{ margin: "0" }} className="fas fa-bars"></i>
               </Dropdown.Toggle>
-
+            
               <Dropdown.Menu className="hamburguerMenu">
                 <Dropdown.Item>
                   <span>
@@ -48,11 +72,12 @@ export default function Header() {
                   </Link>
                 </Dropdown.Item>
               </Dropdown.Menu>
+           
             </Dropdown>
           </div>
-
+               
           <img className="Logo" src={logo} alt="Prográmate-logotipo" />
-
+          {isLogged ? (
           <div className="iconsContainer">
             <div>
               <img src={dashboardIcon} alt="dashboardIcon" />
@@ -75,45 +100,28 @@ export default function Header() {
               </Link>
             </div>
           </div>
+           ) : (
+            ""
+          )}
+          
+         
 
-          <div className="notificationsConfigContainer">
-            <Dropdown>
-              <Dropdown.Toggle
-                variant="bg-transparent"
-                id="dropdown-basic"
-                className="caret-off"
-              >
-                <i className="far fa-bell"></i>
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#!" style={{ color: "gray" }}>
-                  Notificaciones aqui
-                </Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item href="#!">Ver todas</Dropdown.Item>
-                <Dropdown.Item style={{ color: "red" }} href="#/action-3">
-                  Eliminar todas
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown>
-              <Dropdown.Toggle
-                variant="bg-transparent"
-                id="dropdown-basic"
-              ></Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#!">
-                  <span></span>Configuración
-                </Dropdown.Item>
-                <Dropdown.Item href="#!">
-                  <span></span>Salir
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-        </div>
+<ul style={transForm}>
+        {isLogged ? (
+          <UserLink user={user} handleLogout={handleLogout} />
+        ) : (
+          <li>
+            <Link to='/login'>
+              <i className='fas fa-user icon-signIn'></i> Sign in
+            </Link>
+          </li>
+        )}
+      </ul>
+             
+         </div>
+       
+          
+        
       </header>
     </>
   );

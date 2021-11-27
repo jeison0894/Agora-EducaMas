@@ -214,6 +214,7 @@ function Profile() {
             </div>
             <div className="form-group">
               <Input
+              type="password"
                 label="Nueva contraseña"
                 placeholder="Tu password"
                 name="password"
@@ -224,6 +225,7 @@ function Profile() {
             </div>
             <div className="form-group">
               <Input
+              type="password"
                 label="Confirmar contraseña"
                 placeholder="Tu password"
                 name="cf_password"

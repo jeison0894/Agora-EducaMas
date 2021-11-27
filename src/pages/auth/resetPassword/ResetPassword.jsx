@@ -53,12 +53,14 @@ function ResetPassword() {
                 {err && showErrMsg(err)}
                 {success && showSuccessMsg(success)}
                 <Input
+                type="password"
                 label='Contraseña'
                 placeholder="******"
                 name='password'
                 value={password}
                 onChange={handleChangeInput} />
                 <Input
+                type="password"
                  label='Confirmar contraseña'
                  placeholder="******"
                  name='cf_password'

@@ -6,7 +6,6 @@ import {
   dispatchLogin,
   fetchUser
 } from './redux/actions/authAction'
-import Autentification from './componentes/autentication/Autentification'
 import Unification from './Unification'
 import { dispatchGetAllStudents, fetchAllStudents } from './redux/actions/usersAction'
 import { dispatchGetAllProjects, fetchAllProjects } from './redux/actions/projectsAction'

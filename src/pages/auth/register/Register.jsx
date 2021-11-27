@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { showErrMsg, showSuccessMsg } from '../../../utils/notification'
-import { isEmpty, isEmail, isLength, isMatch } from '../../../utils/validation'
+import { isEmpty, isEmail, isLength, isMatch,isLengthcontactNumber } from '../../../utils/validation'
 import './Register.css'
 import { Input } from '../../../componentes/input/Input'
 import logo from '../../../assets/logos/programateLogo.png'
@@ -76,7 +76,7 @@ function Register () {
         success: ''
       })
 
-    if (isLength(contactNumber))
+    if (isLengthcontactNumber(contactNumber))
       return setUser({
         ...user,
         err: 'El telefono debe tener al menos 10 caracteres',
@@ -107,10 +107,10 @@ function Register () {
         email,
         password
       })
-
+      showSuccessMsg(success)
       setUser({ ...user, err: '', success: res.data.msg })
     } catch (err) {
-      console.log(err.response)
+      showErrMsg(err.response.data.msg)
       err.response.data.msg &&
         setUser({ ...user, err: err.response.data.msg, success: '' })
     }
@@ -166,6 +166,7 @@ function Register () {
                 onChange={handleChangeInput}
               />
               <Input className="input-register"
+              type="password"
                 label='Contraseña'
                 placeholder='******'
                 name='password'
@@ -175,6 +176,7 @@ function Register () {
             </div>
             <div className='container-register-input'>
               <Input className="input-register"
+              type="password"
                 label='Confirmar contraseña'
                 placeholder='******'
                 name='cf_password'
@@ -189,12 +191,12 @@ function Register () {
                 onChange={handleChangeInput}
               />
             </div>
-            <div className='container-register-input'>
+            {/* <div className='container-register-input'>
               <label>Ingresa una imagen</label>
               <button className='button-submit-photo' type='submit'>
                 Escoger un archivo
               </button>
-            </div>
+            </div> */}
             {auth.isAdmin ? (
               <div>
                 <select name='select'>
