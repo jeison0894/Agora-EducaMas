@@ -1,9 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import TitleSection from "../../../../componentes/titles/TitleSection";
 import AddLink from "./addLink/addLinks";
 import "./deliveryStyles.css";
 
 const DeliveryProjectStudent = () => {
+  const projects = useSelector((state) => state.projects);
+  const deliveries = useSelector((state) => state.deliveries);
+
+  console.log(projects, deliveries);
   return (
     <>
       <TitleSection name={"ENTREGAS"} />
