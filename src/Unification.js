@@ -20,6 +20,7 @@ import Profile from "./pages/auth/profile/Profile";
 import EditUser from "./pages/auth/profile/EditUser";
 import Register from "./pages/auth/register/Register";
 import ActivationEmail from "./pages/auth/activationEmail/ActivationEmail";
+import Footer from "./componentes/header&footer/Footer";
 
 function Unification() {
   const auth = useSelector((state) => state.auth);
@@ -81,6 +82,7 @@ function Unification() {
 
           <Route path="*" element={<Error404 />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
