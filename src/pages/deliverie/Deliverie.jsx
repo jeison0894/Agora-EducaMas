@@ -21,7 +21,7 @@ const Deliverie = () => {
     setDeliverie(res.data)
     }
     fetchDeliver()
-  }, [])
+  }, [id_deliverie])
 
   return (
     <div>

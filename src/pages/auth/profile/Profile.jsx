@@ -9,7 +9,7 @@ import {
   dispatchGetAllUsers,
 } from "../../../redux/actions/usersAction";
 import { Input } from "../../../componentes/input/Input";
-import "./profile.css";
+import "./Profile.css";
 const initialState = {
   name: "",
   password: "",
@@ -28,7 +28,7 @@ function Profile() {
   const [data, setData] = useState(initialState);
   const { name, password, cf_password, err, success } = data;
 
-  const [avatar, setAvatar] = useState(false);
+  const [avatar, /* setAvatar*/] = useState(false);
   const [loading, setLoading] = useState(false);
   const [callback, setCallback] = useState(false);
 

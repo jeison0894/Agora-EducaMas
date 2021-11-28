@@ -22,7 +22,7 @@ const ShowProject = () => {
       }
     };
     oneproject();
-  }, [params.id]);
+  }, [params.id, token]);
 
   let resources = projects.resources;
   let competencies = projects.competencies;

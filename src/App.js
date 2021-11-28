@@ -78,7 +78,7 @@ function App () {
       fetchAllAnunncies(token).then(res => {
         dispatch(dispatchGetAllAnnucies(res))
       })
-  }, [token, auth.isStudent, dispatch])
+  }, [token, auth.isStudent, dispatch,id_user])
 
     
 

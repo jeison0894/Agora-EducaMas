@@ -22,20 +22,20 @@ const UserLink = ({ user, handleLogout }) => {
             <Dropdown.Menu>
             <Dropdown.Item>
             {isAdmin || isTeacher ? (
-                <Link to="/badges">Insignias</Link>
+                <Link style={{color:'black'}} to="/badges">Insignias</Link>
                 ) : (
                   ''
                 )}
               </Dropdown.Item>
               <Dropdown.Item>
               
-                <Link to="/profile">Perfil</Link>
+                <Link style={{color:'black'}} to="/profile">Perfil</Link>
                 
               </Dropdown.Item>
              
               <Dropdown.Item>
               
-                <Link to="/" onClick={handleLogout}>
+                <Link style={{color:'black'}} to="/" onClick={handleLogout}>
                   Salir
                 </Link>
               

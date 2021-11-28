@@ -2,10 +2,6 @@ import axios from "axios";
 
 ////link para post
 export const API_URLP = "http://localhost:3005/api/agora/new-project";
-////link para get
-const API_URL = "http://localhost:3005/api/agora/get-projects";
-////link para get-one
-/* const API_URL2 = `http://localhost:3005/api/agora/get-one-project/${}`; */
 ////link para get-one
 const API_URL2 = `http://localhost:3005/api/agora/get-one-project`;
 
