@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NotFound from "./componentes/notFound/NotFound";
 import Login from "./pages/auth/login/Login";
+import Footer from "./componentes/header&footer/Footer";
 import Header from "./componentes/header&footer/Header";
 import Error404 from "./componentes/404/Error404";
 import { Announcements } from "./pages/announcements/Announcements";
@@ -19,11 +20,13 @@ import Profile from "./pages/auth/profile/Profile";
 import EditUser from "./pages/auth/profile/EditUser";
 import Register from "./pages/auth/register/Register";
 import ActivationEmail from "./pages/auth/activationEmail/ActivationEmail";
-import Badges from "./pages/bagdes/Bagdes";
+import Badges from "./pages/bagdes/Bagdes.jsx";
 
 function Unification() {
   const auth = useSelector((state) => state.auth);
-  const { isLogged, isAdmin } = auth;
+  const { isLogged, isAdmin} = auth;
+ 
+
 
   return (
     <>
@@ -74,14 +77,18 @@ function Unification() {
           <Route path="/proyectos/:id" element={<ShowProject />} />
           <Route path="/crearAnuncio" element={<CreateAnnouncement />} />
           <Route path="/anuncios" element={<Announcements />} />
-          <Route
-            path="/entregasEstudiante"
-            element={<DeliveryProjectStudent />}
-          />
+          
+         
           <Route
             path="/entregasFormador"
-            element={<DeliveryProjectTrainer />}
+            element={ <DeliveryProjectTrainer /> }
           />
+       
+            <Route
+            path="/entregasEstudiante"
+            element={ <DeliveryProjectStudent/>}
+          />
+         
 
           <Route path="*" element={<Error404 />} />
           <Route
@@ -90,6 +97,7 @@ function Unification() {
           exact
         />
         </Routes>
+        <Footer/>
       </Router>
     </>
   );

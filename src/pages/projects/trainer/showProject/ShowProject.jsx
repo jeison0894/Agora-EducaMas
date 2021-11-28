@@ -9,6 +9,7 @@ const ShowProject = () => {
   const params = useParams();
   const [projects, setProjects] = useState([]);
   const token = useSelector((state) => state.token);
+  const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
     const oneproject = async () => {
@@ -28,11 +29,15 @@ const ShowProject = () => {
 
   return (
     <>
+    {auth.isTeacher || auth.isStudent ? (
       <TitleSectionWithButton
         name={"Contexto del proyecto"}
         btnName={"Ver las entregas"}
-        url={"/entregasFormador "}
+        url={auth.isTeacher  ?  "/entregasFormador " : "/entregasEstudiante"}
       />
+      ):(
+        ""
+      )}
       <div className="viewProjectContainer">
         <div className="allProjectContainer">
           <div className="sectionContainer">

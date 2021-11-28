@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as controllerBadges from "./controllerBadges";
+import * as controllerBadges from "../../controllers/controllerBagdes";
 
 
 function Badges() {
