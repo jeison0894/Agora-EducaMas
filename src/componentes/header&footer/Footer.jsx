@@ -8,7 +8,9 @@ export default function Footer() {
     <>
       <footer>
         <div className="footerContainer">
-          <p>Todos los derechos reservados @2021</p>
+          <p className="sign">
+            Desarrollado por Quackcoders - Prográmate - Educamas ©2021
+          </p>
 
           <div className="socialNetworksContainer">
             <i className="fab fa-facebook"></i>

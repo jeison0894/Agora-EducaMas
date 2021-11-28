@@ -8,6 +8,7 @@ import TitleSectionWithButton from "../../../../componentes/titles/TitleSectionW
 import { useSelector } from "react-redux";
 
 export const ShowProjects = () => {
+<<<<<<< HEAD
   
 
   const projects = useSelector((state) => state.projects)
@@ -23,9 +24,20 @@ export const ShowProjects = () => {
         btnName={"Agregar Proyecto"}
         url={"/crearProyecto"}
       />
+=======
+  const projects = useSelector((state) => state.projects);
+  const auth = useSelector((state) => state.auth);
+  return (
+    <>
+      {auth.isAdmin ? (
+        <TitleSectionWithButton
+          name={"BRIEFS DE LA PROMO"}
+          btnName={"Agregar Proyecto"}
+          url={"/crearProyecto"}
+        />
+>>>>>>> b25269287d2e494bf58ebd50e22e112cb11cc6c1
       ) : (
         <TitleSection name={"BRIEFS DE LA PROMO"} />
-
       )}
 
       <div className="cardsGrid">
@@ -37,11 +49,11 @@ export const ShowProjects = () => {
               <div className="descriptionContainer">
                 <p className="descriptionProject">{project.description}</p>
               </div>
-              <Link to={`/proyectos/${project.id}`}>
-                <Button variant="warning  font-weight-bold text-2 btn-sm p-2 px-3 btnProject">
+              <div className="buttonContainer">
+                <Link to={`/proyectos/${project.id}`} className="btnProject">
                   Ver mas
-                </Button>
-              </Link>
+                </Link>
+              </div>
             </div>
           </div>
         ))}

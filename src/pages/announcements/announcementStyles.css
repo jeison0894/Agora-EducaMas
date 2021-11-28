@@ -123,15 +123,31 @@
 }
 
 /* dasboard styles */
-
-.containerAnnounce{
-  width: 450px;
-  height: 250px;
-  overflow-y: scroll;
-
+.TitleAnnounce {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
 }
 
-.announceContainerDash{
+.containerAnnounce {
+  width: 90%;
+  height: 317px;
+  overflow-y: scroll;
+  box-shadow: rgb(0 0 0 / 16%) 0px 3px 5px;
+  border: 1px solid rgb(236, 236, 236);
+}
+
+.containerAnnounce::-webkit-scrollbar {
+  background-color: rgb(255, 255, 255);
+  width: 9px;
+}
+
+.containerAnnounce::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 204, 204);
+}
+
+.announceContainerDash {
   width: 100%;
   margin: auto;
   max-width: 1300px;
@@ -156,7 +172,6 @@
   margin: 2rem 0;
   margin-right: 4rem;
 }
-
 
 @media (max-width: 700px) {
   .textAnnouncementContainer {

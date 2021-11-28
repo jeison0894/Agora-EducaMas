@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NotFound from "./componentes/notFound/NotFound";
 import Login from "./pages/auth/login/Login";
-import Footer from "./componentes/header&footer/Footer";
 import Header from "./componentes/header&footer/Header";
 import Error404 from "./componentes/404/Error404";
 import { Announcements } from "./pages/announcements/Announcements";
@@ -21,6 +20,7 @@ import EditUser from "./pages/auth/profile/EditUser";
 import Register from "./pages/auth/register/Register";
 import ActivationEmail from "./pages/auth/activationEmail/ActivationEmail";
 import Badges from "./pages/bagdes/Bagdes.jsx";
+import Footer from "./componentes/header&footer/Footer";
 
 function Unification() {
   const auth = useSelector((state) => state.auth);
